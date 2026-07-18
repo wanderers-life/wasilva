@@ -1,0 +1,295 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import HeroCarousel from "@components/HeroCarousel.astro";
+import ProgramCard from "@components/ProgramCard.astro";
+import NewsCard from "@components/NewsCard.astro";
+import GalleryGrid from "@components/GalleryGrid.astro";
+
+const programs = [
+  {
+    image: "/images/adopt-a-book.jpg",
+    title: "පොතක් අනුගමනය කරන්න",
+    description:
+      "දුර්ලභ කෘති ප්‍රතිසංස්කරණය කිරීමට සහ පරිවර්තනය කිරීමට අනුග්‍රාහකත්වය දක්වන්න, පරිත්‍යාගශීලී පුවරු සහිත සමරු සංස්කරණ ලබා ගන්න.",
+  },
+  {
+    image: "/images/silvermere_heritage_guardians.jpg",
+    title: "සිල්වර්මියර් උරුම සුරක්ෂකයින්",
+    description:
+      "ඓතිහාසික සිල්වර්මියර් භූමියේ වර්ග අඩියක අනුග්‍රාහකත්වය දක්වන්න.",
+  },
+  {
+    image: "/images/legacy_lectureships_endowment.jpg",
+    title: "උරුම දේශන දායාදය",
+    description:
+      "නම් කරන ලද දේශන ශිෂ්‍යත්ව ප්‍රතිපාදන, වාර්ෂික ජාතික දේශන සංචාරය.",
+  },
+  {
+    image: "/images/young_writers_residency.jpg",
+    title: "තරුණ ලේඛක සංසරණය",
+    description:
+      "නව ලේඛකයින් සඳහා නේවාසික අවකාශය, උපදේශනය සහ සහයෝගය.",
+  },
+  {
+    image: "/images/digital_archive_project.jpg",
+    title: "ඩිජිටල් සංරක්ෂණාගාර ව්‍යාපෘතිය",
+    description:
+      "නැගී එන ලේඛකයින් සඳහා නම් කරන ලද ඩිජිටල් සංරක්ෂණ ශිෂ්‍යත්ව.",
+  },
+];
+
+const newsArticles = [
+  {
+    thumbnail: "/images/1749010955.jpg",
+    title: "Walk into W.A. Silva's world — Silvermere house museum tour",
+    excerpt:
+      "ඩබ්ලිව්. ඒ. සිල්වා මැදුරේ කෞතුකාගාර සංචාරයක් සඳහා ඔබට ආරාධනා...",
+    link: "/news-and-events/walk-into-wa-silvas-world",
+  },
+  {
+    thumbnail: "/images/1749023627.jpg",
+    title: "W.A. de Silva (1869–1942) — චරිතාපදානය",
+    excerpt:
+      "ඩබ්ලිව්. ඒ. සිල්වා මහතාගේ ජීවිත කතාව සහ සාහිත්‍ය දායකත්වය පිළිබඳ විස්තරයක්...",
+    link: "/news-and-events/wa-de-silva-biography",
+  },
+  {
+    thumbnail: "/images/1749018870.jpg",
+    title: "W.A. Silva's 135th Birth Anniversary — සැමරුම",
+    excerpt:
+      "ඩබ්ලිව්. ඒ. සිල්වා මහතාගේ 135 වන ජන්ම දින සැමරුම් උත්සවය පිළිබඳ වාර්තාවක්...",
+    link: "/news-and-events/135th-birth-anniversary",
+  },
+];
+
+const promoCards = [
+  {
+    image: "/images/venue_hire.jpg",
+    title: "ස්ථානය වෙන්කිරීම",
+    description: "ඔබගේ ඊළඟ සිදුවීම සඳහා අපගේ ඉඩකඩම් වෙන් කරවා ගන්න.",
+    link: "/venue-hire",
+  },
+  {
+    image: "/images/become_a_volunteer.jpg",
+    title: "ස්වේච්ඡා සේවකයෙකු වන්න",
+    description: "අප සමඟ එක්වී උරුමය සුරැකීමට දායක වන්න.",
+    link: "/get-involved",
+  },
+  {
+    image: "/images/donate_us.jpg",
+    title: "දායකත්වය දක්වන්න",
+    description: "ඔබගේ දායකත්වයෙන් අපගේ කාර්යයට සහාය වන්න.",
+    link: "/get-involved",
+  },
+];
+
+// Gallery images for homepage preview (first 25)
+const galleryImages = [
+  { src: "/images/1749102467.jpg", category: "publications" },
+  { src: "/images/1749102579.jpg", category: "publications" },
+  { src: "/images/1749102671.jpg", category: "publications" },
+  { src: "/images/1749103886.jpg", category: "special-events" },
+  { src: "/images/1749103902.jpg", category: "special-events" },
+  { src: "/images/1749103916.jpg", category: "special-events" },
+  { src: "/images/1749103928.jpg", category: "special-events" },
+  { src: "/images/1749103941.jpg", category: "special-events" },
+  { src: "/images/1749104325.jpg", category: "books" },
+  { src: "/images/1749104342.jpg", category: "books" },
+  { src: "/images/1749104360.jpg", category: "books" },
+  { src: "/images/1749104639.jpg", category: "books" },
+  { src: "/images/1749104712.jpg", category: "books" },
+  { src: "/images/1749104733.jpg", category: "books" },
+  { src: "/images/1749104750.jpg", category: "books" },
+  { src: "/images/1749189500.jpg", category: "publications" },
+  { src: "/images/1749189521.jpg", category: "publications" },
+  { src: "/images/1749189535.jpg", category: "publications" },
+  { src: "/images/1749189580.jpg", category: "publications" },
+  { src: "/images/1749189596.jpg", category: "publications" },
+  { src: "/images/1749189640.jpg", category: "special-events" },
+  { src: "/images/1749189664.jpg", category: "special-events" },
+  { src: "/images/1749189680.jpg", category: "special-events" },
+  { src: "/images/1749189694.jpg", category: "special-events" },
+  { src: "/images/1749189710.jpg", category: "special-events" },
+];
+---
+
+<BaseLayout title="මුල් පිටුව">
+  <Header currentPath="/" />
+
+  <!-- A. Hero Carousel -->
+  <HeroCarousel />
+
+  <!-- B. Programs Card Grid -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl lg:text-4xl font-bold text-ink-900 mb-4">අපගේ වැඩසටහන්</h2>
+        <p class="text-ink-600 max-w-2xl mx-auto">
+          ඩබ්ලිව්. ඒ. සිල්වා පදනමේ ප්‍රධාන වැඩසටහන් පහ
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        {programs.map((program) => (
+          <ProgramCard
+            image={program.image}
+            title={program.title}
+            description={program.description}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- C. Vision Block -->
+  <section class="py-16 lg:py-24 bg-cream-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold text-ink-900 mb-4 text-center">
+          ඩබ්ලිව්. ඒ. සිල්වා පදනමේ සාහිත්‍ය හා සංස්කෘතික අඛණ්ඩතාවයට ඇති දැක්ම
+        </h2>
+        <p class="text-brand-700 font-semibold text-center mb-10">දැක්ම ප්‍රකාශය</p>
+        <ul class="space-y-4 text-ink-700">
+          <li class="flex items-start gap-3">
+            <span class="w-2 h-2 mt-2 rounded-full bg-brand-500 shrink-0"></span>
+            <span>ඩබ්ලිව්. ඒ. සිල්වා මහතාගේ භාෂා හා සාහිත්‍යය සඳහා වූ ජාතික දායකත්වය සුරැකීම</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-2 h-2 mt-2 rounded-full bg-brand-500 shrink-0"></span>
+            <span>උන් වහන්සේ පිළිබඳ තොරතුරු රැස් කිරීම සහ ප්‍රචාරය කිරීම</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-2 h-2 mt-2 rounded-full bg-brand-500 shrink-0"></span>
+            <span>උන් වහන්සේගේ නවකතා ප්‍රචාරය කිරීම සහ පරිවර්තනය කිරීම</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-2 h-2 mt-2 rounded-full bg-brand-500 shrink-0"></span>
+            <span>නවීන මාධ්‍ය භාවිතා කරමින් ප්‍රචාරය කිරීම</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-2 h-2 mt-2 rounded-full bg-brand-500 shrink-0"></span>
+            <span>පර්යේෂණ පැවැත්වීම</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-2 h-2 mt-2 rounded-full bg-brand-500 shrink-0"></span>
+            <span>වැල්ලවත්තේ "සිල්වර්මියර්" නිවස ජාතික වත්කමක් ලෙස සුරැකීම, භාෂා-සාහිත්‍ය පුස්තකාලයක්, කෞතුකාගාරයක් සහ පැරණි කොළඹ තොරතුරු මධ්‍යස්ථානයක් ලෙස පවත්වා ගැනීම</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- D. About Us Teaser + News Cards -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl lg:text-4xl font-bold text-ink-900 mb-4 text-center">අපගේ තොරතුරු</h2>
+      <p class="text-ink-600 text-center max-w-2xl mx-auto mb-12">
+        ඩබ්ලිව්. ඒ. සිල්වා පදනම පිළිබඳ නවතම තොරතුරු සහ පුවත්
+      </p>
+
+      <!-- Article Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <NewsCard
+          thumbnail="/images/1748926368.png"
+          title='"හිගාන කොල්ලා" චිත්‍රපටය'
+          excerpt='"හිගාන කොල්ලා" චිත්‍රපටය පිළිබඳ තොරතුරු සහ එහි ඉතිහාසය පිළිබඳ විස්තරයක්...'
+          link="/project/higana-kolla"
+        />
+        <NewsCard
+          thumbnail="/images/1749010955.jpg"
+          title='"කැලේ හඬ" චිත්‍රපට ඉතිහාසය'
+          excerpt='"කැලේ හඬ" චිත්‍රපටයේ ඉතිහාසය සහ එහි වැදගත්කම පිළිබඳ විස්තරයක්...'
+          link="/project/kele-handa"
+        />
+        <NewsCard
+          thumbnail="/images/1749023627.jpg"
+          title='"දෙයියන්ගේ රට" නවකතාවේ උපත'
+          excerpt='"දෙයියන්ගේ රට" නවකතාවේ උපත පිළිබඳ කතාව...'
+          link="/project/deiyange-rate"
+        />
+        <NewsCard
+          thumbnail="/images/1749018870.jpg"
+          title="ඩබ්ලිව්. ඒ. සිල්වා චරිතාපදානය"
+          excerpt="ඩබ්ලිව්. ඒ. සිල්වා මහතාගේ ජීවිත කතාව පිළිබඳ කෙටි විස්තරයක්..."
+          link="/project/wa-silva-biography"
+        />
+        <NewsCard
+          thumbnail="/images/1749021787.jpg"
+          title='"ඩබ්ලිව්. ඒ. සිල්වා සාහිත්‍ය පාසල" රචනාව'
+          excerpt='ඩබ්ලිව්. ඒ. සිල්වා මහතාගේ සාහිත්‍ය පාසල පිළිබඳ විග්‍රහාත්මක රචනාවක්...'
+          link="/project/wa-silva-school-of-literature"
+        />
+        <NewsCard
+          thumbnail="/images/1749023627.jpg"
+          title='"විජයබා කොල්ලය" චිත්‍රපට අනුවර්තනය'
+          excerpt='"විජයබා කොල්ලය" නවකතාවේ චිත්‍රපට අනුවර්තනය පිළිබඳ විස්තරයක්...'
+          link="/project/vijayaba-kollaya"
+        />
+      </div>
+
+      <!-- Promo Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        {promoCards.map((card) => (
+          <a
+            href={card.link}
+            class="group relative overflow-hidden rounded-xl bg-ink-900 min-h-[200px] flex items-end"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center"
+            style={`background-image: url('${card.image}')`}
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-ink-950/90 via-ink-950/40 to-transparent"></div>
+            <div class="relative p-6 w-full">
+              <h3 class="text-xl font-bold text-white mb-1">{card.title}</h3>
+              <p class="text-cream-300 text-sm">{card.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- E. News & Events -->
+  <section class="py-16 lg:py-24 bg-cream-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between mb-12">
+        <div>
+          <h2 class="text-3xl lg:text-4xl font-bold text-ink-900 mb-2">පුවත් සහ සිදුවීම්</h2>
+          <p class="text-ink-600">නවතම පුවත් සහ ඉදිරි සිදුවීම්</p>
+        </div>
+        <a
+          href="/news-and-events"
+          class="hidden sm:inline-flex items-center text-brand-600 hover:text-brand-700 font-medium"
+        >
+          සියල්ල බලන්න
+          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {newsArticles.map((article) => (
+          <NewsCard
+            thumbnail={article.thumbnail}
+            title={article.title}
+            excerpt={article.excerpt}
+            link={article.link}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- F. Photo Gallery Preview -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl lg:text-4xl font-bold text-ink-900 mb-2 text-center">ගැලරිය</h2>
+      <p class="text-ink-600 text-center mb-10">අපගේ ඡායාරූප එකතුව</p>
+      <GalleryGrid images={galleryImages} showMoreLink={true} />
+    </div>
+  </section>
+
+  <!-- G. Footer -->
+  <Footer />
+</BaseLayout>

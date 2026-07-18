@@ -1,0 +1,106 @@
+---
+export interface Props {
+  images: Array<{ src: string; category: string; caption?: string }>;
+  showFilter?: boolean;
+  showMoreLink?: boolean;
+}
+
+const { images, showFilter = true, showMoreLink = false } = Astro.props;
+
+const categories = [
+  { id: "all", label: "සියලුම" },
+  { id: "publications", label: "ප්‍රකාශන" },
+  { id: "special-events", label: "විශේෂ සිදුවීම්" },
+  { id: "books", label: "පොත්" },
+];
+---
+
+<div class="gallery-grid">
+  <!-- Filter Tabs -->
+  {showFilter && (
+    <div class="flex flex-wrap gap-2 mb-6" id="gallery-filters">
+      {categories.map((cat) => (
+        <button
+          class="gallery-filter-btn px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+          class:list={{
+            "bg-brand-600 text-white": cat.id === "all",
+            "bg-ink-100 text-ink-600 hover:bg-ink-200": cat.id !== "all",
+          }}
+          data-filter={cat.id}
+          type="button"
+        >
+          {cat.label}
+        </button>
+      ))}
+    </div>
+  )}
+
+  <!-- Grid -->
+  <div
+    id="gallery-grid"
+    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3"
+  >
+    {images.map((img) => (
+      <div
+        class="gallery-item aspect-square overflow-hidden rounded-lg bg-ink-100 cursor-pointer group relative"
+        data-category={img.category}
+      >
+        <img
+          src={img.src}
+          alt={img.caption || "Gallery image"}
+          class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          loading="lazy"
+        />
+        {img.caption && (
+          <div class="absolute inset-0 bg-ink-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+            <span class="text-white text-xs">{img.caption}</span>
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+
+  <!-- More Photos Link -->
+  {showMoreLink && (
+    <div class="text-center mt-8">
+      <a
+        href="/gallery"
+        class="inline-flex items-center px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-colors"
+      >
+        තවත් පින්තූර
+        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  )}
+</div>
+
+<script>
+  (function () {
+    const filterBtns = document.querySelectorAll(".gallery-filter-btn");
+    const items = document.querySelectorAll(".gallery-item");
+
+    if (!filterBtns.length || !items.length) return;
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach((b) => {
+          b.classList.remove("bg-brand-600", "text-white");
+          b.classList.add("bg-ink-100", "text-ink-600", "hover:bg-ink-200");
+        });
+        btn.classList.remove("bg-ink-100", "text-ink-600", "hover:bg-ink-200");
+        btn.classList.add("bg-brand-600", "text-white");
+
+        const filter = btn.dataset.filter;
+        items.forEach((item) => {
+          if (filter === "all" || item.dataset.category === filter) {
+            item.classList.remove("hidden");
+          } else {
+            item.classList.add("hidden");
+          }
+        });
+      });
+    });
+  })();
+</script>

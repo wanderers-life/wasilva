@@ -1,0 +1,51 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+---
+
+<BaseLayout title="ප්‍රකාශන">
+  <Header currentPath="/publications" />
+
+  <main class="min-h-screen">
+    <!-- Page Header -->
+    <section class="bg-ink-900 text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl lg:text-5xl font-bold mb-4">ප්‍රකාශන</h1>
+        <p class="text-cream-300 text-lg max-w-2xl">ඩබ්ලිව්. ඒ. සිල්වා පදනමේ ප්‍රකාශන</p>
+      </div>
+    </section>
+
+    <!-- Content Placeholder -->
+    <section class="py-16 lg:py-24">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-amber-50 border-l-4 border-brand-500 p-6 rounded-r-lg mb-12">
+          <p class="text-ink-700 font-medium">
+            [CONTENT PLACEHOLDER — paste real copy here]
+          </p>
+          <p class="text-ink-500 mt-2 text-sm">
+            Open https://www.wasilva.org/publications in a browser, copy the rendered text,
+            and paste it here.
+          </p>
+        </div>
+
+        <!-- Suggested structure -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[1, 2, 3, 4, 5, 6].map((i) => (
+            <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-ink-100">
+              <div class="aspect-[3/4] bg-ink-100 flex items-center justify-center">
+                <span class="text-ink-400 text-sm">Book Cover {i}</span>
+              </div>
+              <div class="p-4">
+                <h3 class="font-bold text-ink-900">[CONTENT PLACEHOLDER — Book Title {i}]</h3>
+                <p class="text-ink-500 text-sm mt-1">[Author name]</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

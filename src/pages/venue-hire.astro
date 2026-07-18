@@ -1,0 +1,52 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+---
+
+<BaseLayout title="ස්ථානය වෙන්කිරීම">
+  <Header currentPath="/venue-hire" />
+
+  <main class="min-h-screen">
+    <!-- Page Header -->
+    <section class="bg-ink-900 text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl lg:text-5xl font-bold mb-4">ස්ථානය වෙන්කිරීම</h1>
+        <p class="text-cream-300 text-lg max-w-2xl">ඔබගේ ඊළඟ සිදුවීම සඳහා අපගේ ඉඩකඩම් වෙන් කරවා ගන්න</p>
+      </div>
+    </section>
+
+    <!-- Content Placeholder -->
+    <section class="py-16 lg:py-24">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-amber-50 border-l-4 border-brand-500 p-6 rounded-r-lg mb-12">
+          <p class="text-ink-700 font-medium">
+            [CONTENT PLACEHOLDER — paste real copy here]
+          </p>
+          <p class="text-ink-500 mt-2 text-sm">
+            Open https://www.wasilva.org/venue-hire in a browser, copy the rendered text,
+            and paste it here.
+          </p>
+        </div>
+
+        <!-- Suggested structure -->
+        <div class="space-y-8">
+          <div>
+            <h2 class="text-2xl font-bold text-ink-900 mb-4">පහසුකම්</h2>
+            <p class="text-ink-600">[CONTENT PLACEHOLDER — venue facilities description]</p>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold text-ink-900 mb-4">මිල ගණන්</h2>
+            <p class="text-ink-600">[CONTENT PLACEHOLDER — pricing info]</p>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold text-ink-900 mb-4">වෙන් කරවා ගැනීම සඳහා</h2>
+            <p class="text-ink-600">[CONTENT PLACEHOLDER — booking process]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

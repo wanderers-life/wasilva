@@ -1,0 +1,98 @@
+---
+const navLinks = [
+  { label: "මුල් පිටුව", href: "/" },
+  { label: "අපි ගැන", href: "/about-us" },
+  { label: "පුවත් සහ සිදුවීම්", href: "/news-and-events" },
+  { label: "එක්වන්න", href: "/get-involved" },
+  { label: "ස්ථානය වෙන්කිරීම", href: "/venue-hire" },
+  { label: "ප්‍රකාශන", href: "/publications" },
+  { label: "ගැලරිය", href: "/gallery" },
+  { label: "අපව සම්බන්ධ කරගන්න", href: "/contact-us" },
+];
+---
+
+<footer class="bg-ink-950 text-cream-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      <!-- About -->
+      <div class="lg:col-span-1">
+        <h3 class="text-lg font-bold text-white mb-4">ඩබ්ලිව්. ඒ. සිල්වා පදනම</h3>
+        <p class="text-cream-200 text-sm leading-relaxed">
+          ශ්‍රී ලංකාවේ සාහිත්‍ය, භාෂා හා සංස්කෘතික උරුමය සුරැකීම සහ ප්‍රවර්ධනය කිරීම උදෙසා කැපවූ ආයතනයකි.
+        </p>
+        <!-- Newsletter Signup (placeholder) -->
+        <div class="mt-6">
+          <label class="block text-sm font-medium text-cream-300 mb-2">
+            ඔබගේ විද්‍යුත් තැපැල් ලිපිනය ඇතුළත් කර...
+          </label>
+          <div class="flex gap-2">
+            <input
+              type="email"
+              placeholder="ඔබගේ ඊ-මේල් ලිපිනය"
+              class="flex-1 px-3 py-2 bg-ink-800 border border-ink-700 rounded-lg text-sm text-cream-100 placeholder-ink-400 focus:outline-none focus:ring-2 focus:ring-brand-500"
+            />
+            <button
+              class="px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-lg transition-colors"
+            >
+              දායක වන්න
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nav Menu -->
+      <div>
+        <h3 class="text-lg font-bold text-white mb-4">අඩවි සිතියම</h3>
+        <ul class="space-y-2">
+          {navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-cream-300 hover:text-white text-sm transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="lg:col-span-1">
+        <h3 class="text-lg font-bold text-white mb-4">අපව සම්බන්ධ කරගන්න</h3>
+        <div class="space-y-3 text-sm text-cream-300">
+          <p class="flex items-start gap-2">
+            <svg class="w-5 h-5 mt-0.5 shrink-0 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span>
+              අංක 126, ඩබ්ලිව්. ඒ. සිල්වා මාවත,<br />
+              වැල්ලවත්ත, කොළඹ 6,<br />
+              ශ්‍රී ලංකාව
+            </span>
+          </p>
+          <p class="flex items-center gap-2">
+            <svg class="w-5 h-5 shrink-0 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span>+94 712 748 174</span>
+          </p>
+          <p class="flex items-center gap-2">
+            <svg class="w-5 h-5 shrink-0 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span>info@wasilva.org</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="mt-10 pt-8 border-t border-ink-800 text-center">
+      <p class="text-cream-400 text-sm">
+        &copy; {new Date().getFullYear()} ඩබ්ලිව්. ඒ. සිල්වා පදනම. සියලුම හිමිකම් ඇවිරිණි.
+      </p>
+    </div>
+  </div>
+</footer>

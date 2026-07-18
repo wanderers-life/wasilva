@@ -1,0 +1,56 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+---
+
+<BaseLayout title="එක්වන්න">
+  <Header currentPath="/get-involved" />
+
+  <main class="min-h-screen">
+    <!-- Page Header -->
+    <section class="bg-ink-900 text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl lg:text-5xl font-bold mb-4">එක්වන්න</h1>
+        <p class="text-cream-300 text-lg max-w-2xl">අප සමඟ එක්වී උරුමය සුරැකීමට දායක වන්න</p>
+      </div>
+    </section>
+
+    <!-- Content Placeholder -->
+    <section class="py-16 lg:py-24">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-amber-50 border-l-4 border-brand-500 p-6 rounded-r-lg mb-12">
+          <p class="text-ink-700 font-medium">
+            [CONTENT PLACEHOLDER — paste real copy here]
+          </p>
+          <p class="text-ink-500 mt-2 text-sm">
+            Open https://www.wasilva.org/get-involved in a browser, copy the rendered text,
+            and paste it here.
+          </p>
+        </div>
+
+        <!-- Suggested structure -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-white rounded-xl p-8 shadow-sm border border-ink-100">
+            <h2 class="text-2xl font-bold text-ink-900 mb-4">ස්වේච්ඡා සේවය</h2>
+            <p class="text-ink-600">[CONTENT PLACEHOLDER — volunteer info]</p>
+          </div>
+          <div class="bg-white rounded-xl p-8 shadow-sm border border-ink-100">
+            <h2 class="text-2xl font-bold text-ink-900 mb-4">දායකත්වය</h2>
+            <p class="text-ink-600">[CONTENT PLACEHOLDER — donation info]</p>
+          </div>
+          <div class="bg-white rounded-xl p-8 shadow-sm border border-ink-100">
+            <h2 class="text-2xl font-bold text-ink-900 mb-4">හවුල්කාරිත්වය</h2>
+            <p class="text-ink-600">[CONTENT PLACEHOLDER — partnership info]</p>
+          </div>
+          <div class="bg-white rounded-xl p-8 shadow-sm border border-ink-100">
+            <h2 class="text-2xl font-bold text-ink-900 mb-4">අනුග්‍රාහකත්වය</h2>
+            <p class="text-ink-600">[CONTENT PLACEHOLDER — sponsorship info]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

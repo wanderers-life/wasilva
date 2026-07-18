@@ -1,0 +1,70 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import NewsCard from "@components/NewsCard.astro";
+
+// Placeholder data — replace with real content from live site
+const allNews = [
+  {
+    thumbnail: "/images/1749010955.jpg",
+    title: "Walk into W.A. Silva's world — Silvermere house museum tour",
+    excerpt: "ඩබ්ලිව්. ඒ. සිල්වා මැදුරේ කෞතුකාගාර සංචාරයක් සඳහා ඔබට ආරාධනා...",
+    link: "/news-and-events/walk-into-wa-silvas-world",
+  },
+  {
+    thumbnail: "/images/1749023627.jpg",
+    title: "W.A. de Silva (1869–1942) — චරිතාපදානය",
+    excerpt: "ඩබ්ලිව්. ඒ. සිල්වා මහතාගේ ජීවිත කතාව සහ සාහිත්‍ය දායකත්වය පිළිබඳ විස්තරයක්...",
+    link: "/news-and-events/wa-de-silva-biography",
+  },
+  {
+    thumbnail: "/images/1749018870.jpg",
+    title: "W.A. Silva's 135th Birth Anniversary — සැමරුම",
+    excerpt: "ඩබ්ලිව්. ඒ. සිල්වා මහතාගේ 135 වන ජන්ම දින සැමරුම් උත්සවය පිළිබඳ වාර්තාවක්...",
+    link: "/news-and-events/135th-birth-anniversary",
+  },
+];
+---
+
+<BaseLayout title="පුවත් සහ සිදුවීම්">
+  <Header currentPath="/news-and-events" />
+
+  <main class="min-h-screen">
+    <!-- Page Header -->
+    <section class="bg-ink-900 text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl lg:text-5xl font-bold mb-4">පුවත් සහ සිදුවීම්</h1>
+        <p class="text-cream-300 text-lg max-w-2xl">නවතම පුවත් සහ ඉදිරි සිදුවීම්</p>
+      </div>
+    </section>
+
+    <!-- Content Placeholder Notice -->
+    <section class="py-8 bg-amber-50 border-b border-amber-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-ink-700 text-sm">
+          <strong>Note:</strong> [CONTENT PLACEHOLDER — replace with full news list from
+          https://www.wasilva.org/news-and-events]
+        </p>
+      </div>
+    </section>
+
+    <!-- News Grid -->
+    <section class="py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {allNews.map((item) => (
+            <NewsCard
+              thumbnail={item.thumbnail}
+              title={item.title}
+              excerpt={item.excerpt}
+              link={item.link}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,65 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import GalleryGrid from "@components/GalleryGrid.astro";
+
+// Full gallery — all images from the spec
+const allGalleryImages = [
+  { src: "/images/1749102467.jpg", category: "publications" },
+  { src: "/images/1749102579.jpg", category: "publications" },
+  { src: "/images/1749102671.jpg", category: "publications" },
+  { src: "/images/1749103886.jpg", category: "special-events" },
+  { src: "/images/1749103902.jpg", category: "special-events" },
+  { src: "/images/1749103916.jpg", category: "special-events" },
+  { src: "/images/1749103928.jpg", category: "special-events" },
+  { src: "/images/1749103941.jpg", category: "special-events" },
+  { src: "/images/1749104325.jpg", category: "books" },
+  { src: "/images/1749104342.jpg", category: "books" },
+  { src: "/images/1749104360.jpg", category: "books" },
+  { src: "/images/1749104639.jpg", category: "books" },
+  { src: "/images/1749104712.jpg", category: "books" },
+  { src: "/images/1749104733.jpg", category: "books" },
+  { src: "/images/1749104750.jpg", category: "books" },
+  { src: "/images/1749189500.jpg", category: "publications" },
+  { src: "/images/1749189521.jpg", category: "publications" },
+  { src: "/images/1749189535.jpg", category: "publications" },
+  { src: "/images/1749189580.jpg", category: "publications" },
+  { src: "/images/1749189596.jpg", category: "publications" },
+  { src: "/images/1749189640.jpg", category: "special-events" },
+  { src: "/images/1749189664.jpg", category: "special-events" },
+  { src: "/images/1749189680.jpg", category: "special-events" },
+  { src: "/images/1749189694.jpg", category: "special-events" },
+  { src: "/images/1749189710.jpg", category: "special-events" },
+  { src: "/images/1749189724.jpg", category: "special-events" },
+];
+---
+
+<BaseLayout title="ගැලරිය">
+  <Header currentPath="/gallery" />
+
+  <main class="min-h-screen">
+    <!-- Page Header -->
+    <section class="bg-ink-900 text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl lg:text-5xl font-bold mb-4">ගැලරිය</h1>
+        <p class="text-cream-300 text-lg max-w-2xl">අපගේ ඡායාරූප එකතුව</p>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-amber-50 border-l-4 border-brand-500 p-6 rounded-r-lg mb-8">
+          <p class="text-ink-700 text-sm">
+            <strong>Note:</strong> [CONTENT PLACEHOLDER — full gallery may have more images.
+            Open https://www.wasilva.org/gallery to verify the complete set.]
+          </p>
+        </div>
+        <GalleryGrid images={allGalleryImages} showFilter={true} showMoreLink={false} />
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
