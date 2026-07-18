@@ -36,7 +36,7 @@ const { Content } = await render(item);
         <!-- Thumbnail -->
         <div class="aspect-[16/9] rounded-xl overflow-hidden bg-ink-100 mb-10">
           <img
-            src={item.data.thumbnail}
+            src={url(item.data.thumbnail)}
             alt={item.data.title}
             class="w-full h-full object-cover"
           />

@@ -4,3 +4,5 @@ dist/
 *.local
 .DS_Store
 graphify-out/
+c
+wasilva/

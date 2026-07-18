@@ -102,6 +102,25 @@ function fixFile(filePath, importPath) {
     }
   );
   
+  // Fix dynamic src={variable} for images (e.g., src={thumbnail}, src={image}, src={img.src})
+  content = content.replace(
+    /src=\{([a-zA-Z_$][a-zA-Z0-9_$.]*)\}/g,
+    (match, varName) => {
+      if (varName.includes('url(')) return match;
+      if (varName === 'currentPath') return match;
+      return `src={url(${varName})}`;
+    }
+  );
+  
+  // Fix dynamic src={item.data.thumbnail} or src={article.data.thumbnail} patterns
+  content = content.replace(
+    /src=\{([a-zA-Z_$][a-zA-Z0-9_$.]+\.[a-zA-Z_$][a-zA-Z0-9_$.]+\.[a-zA-Z_$][a-zA-Z0-9_$.]+)\}/g,
+    (match, varName) => {
+      if (varName.includes('url(')) return match;
+      return `src={url(${varName})}`;
+    }
+  );
+  
   if (content !== fs.readFileSync(fullPath, 'utf8')) {
     fs.writeFileSync(fullPath, content, 'utf8');
     console.log(`FIXED: ${filePath}`);

@@ -48,7 +48,7 @@ import { url } from "../lib/url";
         data-category={img.category}
       >
         <img
-          src={img.src}
+          src={url(img.src)}
           alt={img.caption || "Gallery image"}
           class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           loading="lazy"
