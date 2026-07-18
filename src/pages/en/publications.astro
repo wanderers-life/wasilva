@@ -1,0 +1,62 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+---
+
+<BaseLayout title="Publications" lang="en">
+  <Header currentPath="/en/publications" />
+
+  <main class="min-h-screen">
+    <section class="bg-ink-900 text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl lg:text-5xl font-bold mb-4">Publications</h1>
+        <p class="text-cream-300 text-lg max-w-2xl">Books and publications by and about W.A. Silva</p>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-24">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-12">
+          <h2 class="text-3xl font-bold text-ink-900 mb-4">W.A. Silva's Literary Works</h2>
+          <p class="text-ink-600 leading-relaxed text-lg mb-6">
+            W.A. Silva was a prolific writer whose novels and short stories have left an indelible mark on Sinhala literature. His works are known for their vivid portrayal of Sri Lankan life, historical narratives, and deep cultural insights.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div class="bg-white rounded-xl p-8 shadow-sm border border-ink-100">
+            <h3 class="text-xl font-bold text-ink-900 mb-3">Hingana Kolla</h3>
+            <p class="text-ink-600 mb-4">A classic Sinhala novel that explores themes of love, loss, and redemption in early 20th century Sri Lanka.</p>
+            <a href="/en/project/higana-kolla" class="text-brand-600 hover:text-brand-700 font-medium">Read more →</a>
+          </div>
+          <div class="bg-white rounded-xl p-8 shadow-sm border border-ink-100">
+            <h3 class="text-xl font-bold text-ink-900 mb-3">Kele Handa</h3>
+            <p class="text-ink-600 mb-4">A captivating story set in the Sri Lankan wilderness, showcasing Silva's mastery of descriptive narrative.</p>
+            <a href="/en/project/kele-handa" class="text-brand-600 hover:text-brand-700 font-medium">Read more →</a>
+          </div>
+          <div class="bg-white rounded-xl p-8 shadow-sm border border-ink-100">
+            <h3 class="text-xl font-bold text-ink-900 mb-3">Deiyange Rate</h3>
+            <p class="text-ink-600 mb-4">A thought-provoking novel that examines the intersection of faith, tradition, and modernity.</p>
+            <a href="/en/project/deiyange-rate" class="text-brand-600 hover:text-brand-700 font-medium">Read more →</a>
+          </div>
+          <div class="bg-white rounded-xl p-8 shadow-sm border border-ink-100">
+            <h3 class="text-xl font-bold text-ink-900 mb-3">Vijayaba Kollaya</h3>
+            <p class="text-ink-600 mb-4">A historical novel that brings to life the dramatic events of Sri Lanka's royal past.</p>
+            <a href="/en/project/vijayaba-kollaya" class="text-brand-600 hover:text-brand-700 font-medium">Read more →</a>
+          </div>
+        </div>
+
+        <div class="bg-cream-100 rounded-xl p-8">
+          <h3 class="text-xl font-bold text-ink-900 mb-3">About the Author</h3>
+          <p class="text-ink-600 leading-relaxed">
+            W.A. Silva (1890–1957) was one of Sri Lanka's most celebrated novelists. His literary career spanned several decades, during which he produced a remarkable body of work that continues to be studied and admired. The W.A. Silva Foundation is dedicated to preserving his legacy and making his works accessible to new generations of readers.
+          </p>
+          <a href="/en/project/wa-silva-biography" class="inline-block mt-4 text-brand-600 hover:text-brand-700 font-medium">Read full biography →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

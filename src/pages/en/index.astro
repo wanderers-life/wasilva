@@ -1,0 +1,295 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import HeroCarousel from "@components/HeroCarousel.astro";
+import ProgramCard from "@components/ProgramCard.astro";
+import NewsCard from "@components/NewsCard.astro";
+import GalleryGrid from "@components/GalleryGrid.astro";
+
+const programs = [
+  {
+    image: "/images/adopt-a-book.jpg",
+    title: "Adopt a Book",
+    description:
+      "Sponsor the restoration and translation of rare works, receive commemorative editions with donor plaques.",
+  },
+  {
+    image: "/images/silvermere_heritage_guardians.jpg",
+    title: "Silvermere Heritage Guardians",
+    description:
+      "Sponsor a square foot of the historic Silvermere grounds.",
+  },
+  {
+    image: "/images/legacy_lectureships_endowment.jpg",
+    title: "Legacy Lectureship Endowment",
+    description:
+      "Named lecture scholarship endowments, annual national lecture tour.",
+  },
+  {
+    image: "/images/young_writers_residency.jpg",
+    title: "Young Writers' Residency",
+    description:
+      "Residential space, mentorship and support for new writers.",
+  },
+  {
+    image: "/images/digital_archive_project.jpg",
+    title: "Digital Archive Project",
+    description:
+      "Named digital archive scholarships for emerging writers.",
+  },
+];
+
+const newsArticles = [
+  {
+    thumbnail: "/images/1749010955.jpg",
+    title: "Walk into W.A. Silva's world — Silvermere house museum tour",
+    excerpt:
+      "An invitation to tour the W.A. Silva mansion museum...",
+    link: "/en/news-and-events/walk-into-wa-silvas-world",
+  },
+  {
+    thumbnail: "/images/1749023627.jpg",
+    title: "W.A. de Silva (1869–1942) — Biography",
+    excerpt:
+      "The life story and literary contributions of W.A. de Silva...",
+    link: "/en/news-and-events/wa-de-silva-biography",
+  },
+  {
+    thumbnail: "/images/1749018870.jpg",
+    title: "W.A. Silva's 135th Birth Anniversary — Celebration",
+    excerpt:
+      "A report on the 135th birth anniversary celebration of W.A. Silva...",
+    link: "/en/news-and-events/135th-birth-anniversary",
+  },
+];
+
+const promoCards = [
+  {
+    image: "/images/venue_hire.jpg",
+    title: "Venue Hire",
+    description: "Book our spaces for your next event.",
+    link: "/en/venue-hire",
+  },
+  {
+    image: "/images/become_a_volunteer.jpg",
+    title: "Become a Volunteer",
+    description: "Join us and contribute to preserving heritage.",
+    link: "/en/get-involved",
+  },
+  {
+    image: "/images/donate_us.jpg",
+    title: "Donate",
+    description: "Support our work with your contribution.",
+    link: "/en/get-involved",
+  },
+];
+
+// Gallery images for homepage preview (first 25)
+const galleryImages = [
+  { src: "/images/1749102467.jpg", category: "publications" },
+  { src: "/images/1749102579.jpg", category: "publications" },
+  { src: "/images/1749102671.jpg", category: "publications" },
+  { src: "/images/1749103886.jpg", category: "special-events" },
+  { src: "/images/1749103902.jpg", category: "special-events" },
+  { src: "/images/1749103916.jpg", category: "special-events" },
+  { src: "/images/1749103928.jpg", category: "special-events" },
+  { src: "/images/1749103941.jpg", category: "special-events" },
+  { src: "/images/1749104325.jpg", category: "books" },
+  { src: "/images/1749104342.jpg", category: "books" },
+  { src: "/images/1749104360.jpg", category: "books" },
+  { src: "/images/1749104639.jpg", category: "books" },
+  { src: "/images/1749104712.jpg", category: "books" },
+  { src: "/images/1749104733.jpg", category: "books" },
+  { src: "/images/1749104750.jpg", category: "books" },
+  { src: "/images/1749189500.jpg", category: "publications" },
+  { src: "/images/1749189521.jpg", category: "publications" },
+  { src: "/images/1749189535.jpg", category: "publications" },
+  { src: "/images/1749189580.jpg", category: "publications" },
+  { src: "/images/1749189596.jpg", category: "publications" },
+  { src: "/images/1749189640.jpg", category: "special-events" },
+  { src: "/images/1749189664.jpg", category: "special-events" },
+  { src: "/images/1749189680.jpg", category: "special-events" },
+  { src: "/images/1749189694.jpg", category: "special-events" },
+  { src: "/images/1749189710.jpg", category: "special-events" },
+];
+---
+
+<BaseLayout title="Home" lang="en">
+  <Header currentPath="/en" />
+
+  <!-- A. Hero Carousel -->
+  <HeroCarousel />
+
+  <!-- B. Programs Card Grid -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl lg:text-4xl font-bold text-ink-900 mb-4">Our Programs</h2>
+        <p class="text-ink-600 max-w-2xl mx-auto">
+          The five main programs of the W.A. Silva Foundation
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        {programs.map((program) => (
+          <ProgramCard
+            image={program.image}
+            title={program.title}
+            description={program.description}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- C. Vision Block -->
+  <section class="py-16 lg:py-24 bg-cream-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold text-ink-900 mb-4 text-center">
+          W.A. Silva Foundation's Vision for Literary & Cultural Continuity
+        </h2>
+        <p class="text-brand-700 font-semibold text-center mb-10">Vision Statement</p>
+        <ul class="space-y-4 text-ink-700">
+          <li class="flex items-start gap-3">
+            <span class="w-2 h-2 mt-2 rounded-full bg-brand-500 shrink-0"></span>
+            <span>Preserving the national contribution of W.A. Silva to language and literature</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-2 h-2 mt-2 rounded-full bg-brand-500 shrink-0"></span>
+            <span>Collecting and disseminating information about his work</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-2 h-2 mt-2 rounded-full bg-brand-500 shrink-0"></span>
+            <span>Promoting and translating his novels</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-2 h-2 mt-2 rounded-full bg-brand-500 shrink-0"></span>
+            <span>Promotion through modern media</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-2 h-2 mt-2 rounded-full bg-brand-500 shrink-0"></span>
+            <span>Conducting research</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-2 h-2 mt-2 rounded-full bg-brand-500 shrink-0"></span>
+            <span>Preserving "Silvermere" in Wellawatte as a national asset, maintaining it as a language-literature library, museum, and old Colombo information centre</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- D. About Us Teaser + News Cards -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl lg:text-4xl font-bold text-ink-900 mb-4 text-center">Our Updates</h2>
+      <p class="text-ink-600 text-center max-w-2xl mx-auto mb-12">
+        Latest news and updates about the W.A. Silva Foundation
+      </p>
+
+      <!-- Article Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <NewsCard
+          thumbnail="/images/1748926368.png"
+          title='"Hingana Kolla" Film'
+          excerpt='Information about the "Hingana Kolla" film and its history...'
+          link="/en/project/higana-kolla"
+        />
+        <NewsCard
+          thumbnail="/images/1749010955.jpg"
+          title='"Kele Handa" Film History'
+          excerpt='The history and significance of the "Kele Handa" film...'
+          link="/en/project/kele-handa"
+        />
+        <NewsCard
+          thumbnail="/images/1749023627.jpg"
+          title='The Birth of "Deiyange Rate" Novel'
+          excerpt='The story behind the creation of "Deiyange Rate"...'
+          link="/en/project/deiyange-rate"
+        />
+        <NewsCard
+          thumbnail="/images/1749018870.jpg"
+          title="W.A. Silva Biography"
+          excerpt='A brief account of the life of W.A. Silva...'
+          link="/en/project/wa-silva-biography"
+        />
+        <NewsCard
+          thumbnail="/images/1749021787.jpg"
+          title='"W.A. Silva School of Literature" Essay'
+          excerpt='An analytical essay on the W.A. Silva school of literature...'
+          link="/en/project/wa-silva-school-of-literature"
+        />
+        <NewsCard
+          thumbnail="/images/1749023627.jpg"
+          title='"Vijayaba Kollaya" Film Adaptation'
+          excerpt='Details about the film adaptation of "Vijayaba Kollaya"...'
+          link="/en/project/vijayaba-kollaya"
+        />
+      </div>
+
+      <!-- Promo Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        {promoCards.map((card) => (
+          <a
+            href={card.link}
+            class="group relative overflow-hidden rounded-xl bg-ink-900 min-h-[200px] flex items-end"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center"
+            style={`background-image: url('${card.image}')`}
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-ink-950/90 via-ink-950/40 to-transparent"></div>
+            <div class="relative p-6 w-full">
+              <h3 class="text-xl font-bold text-white mb-1">{card.title}</h3>
+              <p class="text-cream-300 text-sm">{card.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- E. News & Events -->
+  <section class="py-16 lg:py-24 bg-cream-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between mb-12">
+        <div>
+          <h2 class="text-3xl lg:text-4xl font-bold text-ink-900 mb-2">News & Events</h2>
+          <p class="text-ink-600">Latest news and upcoming events</p>
+        </div>
+        <a
+          href="/en/news-and-events"
+          class="hidden sm:inline-flex items-center text-brand-600 hover:text-brand-700 font-medium"
+        >
+          View all
+          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {newsArticles.map((article) => (
+          <NewsCard
+            thumbnail={article.thumbnail}
+            title={article.title}
+            excerpt={article.excerpt}
+            link={article.link}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- F. Photo Gallery Preview -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl lg:text-4xl font-bold text-ink-900 mb-2 text-center">Gallery</h2>
+      <p class="text-ink-600 text-center mb-10">Our photo collection</p>
+      <GalleryGrid images={galleryImages} showMoreLink={true} />
+    </div>
+  </section>
+
+  <!-- G. Footer -->
+  <Footer />
+</BaseLayout>

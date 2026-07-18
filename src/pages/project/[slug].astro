@@ -1,0 +1,75 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const articles = await getCollection("articles");
+  return articles.map((article) => ({
+    params: { slug: article.id },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+---
+
+<BaseLayout title={article.data.title}>
+  <Header currentPath="/project" />
+
+  <main class="min-h-screen">
+    <!-- Page Header -->
+    <section class="bg-ink-900 text-white py-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-brand-300 text-sm font-medium mb-2">ව්‍යාපෘතිය</p>
+        <h1 class="text-3xl lg:text-4xl font-bold mb-4">{article.data.title}</h1>
+        <p class="text-cream-300 text-lg">{article.data.excerpt}</p>
+      </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="py-16 lg:py-24">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Thumbnail -->
+        <div class="aspect-[16/9] rounded-xl overflow-hidden bg-ink-100 mb-10">
+          <img
+            src={article.data.thumbnail}
+            alt={article.data.title}
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <!-- Date -->
+        <p class="text-ink-400 text-sm mb-8">
+          {new Date(article.data.date).toLocaleDateString("si-LK", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+        </p>
+
+        <!-- Body -->
+        <article class="prose prose-lg max-w-none prose-headings:text-ink-900 prose-p:text-ink-700 prose-a:text-brand-600">
+          <Content />
+        </article>
+
+        <!-- Back link -->
+        <div class="mt-12 pt-8 border-t border-ink-200">
+          <a
+            href="/"
+            class="inline-flex items-center text-brand-600 hover:text-brand-700 font-medium transition-colors"
+          >
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            මුල් පිටුවට ආපසු
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

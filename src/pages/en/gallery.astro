@@ -4,8 +4,7 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import GalleryGrid from "@components/GalleryGrid.astro";
 
-// Full gallery — all images from the spec
-const allGalleryImages = [
+const galleryImages = [
   { src: "/images/1749102467.jpg", category: "publications" },
   { src: "/images/1749102579.jpg", category: "publications" },
   { src: "/images/1749102671.jpg", category: "publications" },
@@ -31,31 +30,23 @@ const allGalleryImages = [
   { src: "/images/1749189680.jpg", category: "special-events" },
   { src: "/images/1749189694.jpg", category: "special-events" },
   { src: "/images/1749189710.jpg", category: "special-events" },
-  { src: "/images/1749189724.jpg", category: "special-events" },
 ];
 ---
 
-<BaseLayout title="ගැලරිය">
-  <Header currentPath="/gallery" />
+<BaseLayout title="Gallery" lang="en">
+  <Header currentPath="/en/gallery" />
 
   <main class="min-h-screen">
-    <!-- Page Header -->
     <section class="bg-ink-900 text-white py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="text-4xl lg:text-5xl font-bold mb-4">ගැලරිය</h1>
-        <p class="text-cream-300 text-lg max-w-2xl">අපගේ ඡායාරූප එකතුව</p>
+        <h1 class="text-4xl lg:text-5xl font-bold mb-4">Gallery</h1>
+        <p class="text-cream-300 text-lg max-w-2xl">Photo collection of the W.A. Silva Foundation</p>
       </div>
     </section>
 
-    <!-- Gallery -->
     <section class="py-16 lg:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-amber-50 border-l-4 border-brand-500 p-6 rounded-r-lg mb-8">
-          <p class="text-ink-700 text-sm">
-            <strong>Note:</strong> ඩබ්ලිව්. ඒ. සිල්වා පදනමේ ඡායාරූප එකතුව. ප්‍රකාශන, පොත්, සහ විශේෂ සිදුවීම් වල ඡායාරූප මෙහි ඇතුළත් වේ.
-          </p>
-        </div>
-        <GalleryGrid images={allGalleryImages} showFilter={true} showMoreLink={false} />
+        <GalleryGrid images={galleryImages} />
       </div>
     </section>
   </main>

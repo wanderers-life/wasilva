@@ -19,35 +19,49 @@ import Footer from "@components/Footer.astro";
     <!-- Content Placeholder -->
     <section class="py-16 lg:py-24">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-amber-50 border-l-4 border-brand-500 p-6 rounded-r-lg mb-12">
-          <p class="text-ink-700 font-medium">
-            [CONTENT PLACEHOLDER — paste real copy here]
-          </p>
-          <p class="text-ink-500 mt-2 text-sm">
-            Open https://www.wasilva.org/get-involved in a browser, copy the rendered text,
-            and paste it here.
-          </p>
-        </div>
-
-        <!-- Suggested structure -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="bg-white rounded-xl p-8 shadow-sm border border-ink-100">
-            <h2 class="text-2xl font-bold text-ink-900 mb-4">ස්වේච්ඡා සේවය</h2>
-            <p class="text-ink-600">[CONTENT PLACEHOLDER — volunteer info]</p>
+        
+          <div class="mb-10">
+            <p class="text-ink-600 leading-relaxed text-lg">ශ්‍රී ලංකාවේ විශිෂ්ටතම සාහිත්‍ය නායකයන්ගෙන් එක් වූ ඩබ්ලිව්. ඒ. සිල්වාගේ උරුමය සංරක්ෂණය කර ප්‍රවර්ධනය කිරීමට අප හා එක්වන්න. ඔබ සාහිත්‍ය ආදරෙවෙන්නෙක්, පර්යේෂකයෙක්, ස්වේච්ඡා සේවකයෙක් හෝ දායකයෙක් වුවත්, ඔබේ සහයෝගය අපට සිදුවීම් සංවිධානය කිරීමට, අපූරු කෘති ප්‍රකාශනය කිරීමට සහ සිංහල සාහිත්‍යය ඔස්සේ අනාගත පරපුර උද්දීපනය කිරීමට උපකාරී වේ. මෙම සංස්කෘතික ගමනේ කොටසක් වෙන්න, ඔබේ සම්බන්ධතාවය වැදගත්ය!</p>
           </div>
           <div class="bg-white rounded-xl p-8 shadow-sm border border-ink-100">
-            <h2 class="text-2xl font-bold text-ink-900 mb-4">දායකත්වය</h2>
-            <p class="text-ink-600">[CONTENT PLACEHOLDER — donation info]</p>
+            <h2 class="text-2xl font-bold text-ink-900 mb-6">එක්වන්න - පෝරමය</h2>
+            <p class="text-ink-600 mb-4">කරුණාකර පහත පෝරමය පුරවා අප හා එක්වන්න:</p>
+            <div class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-ink-700 mb-1">ඔබ කොහොම වුණත් අප හා එක්වීමට කැමතිද? *</label>
+                <select class="w-full px-4 py-2.5 border border-ink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500">
+                  <option value="">විකල්පයක් තෝරන්න</option>
+                  <option value="venue">ස්ථානය වෙන් කරගැනීම</option>
+                  <option value="volunteer">ස්වේච්ඡා සේවකයෙක් වන්න</option>
+                  <option value="donate">අපට පරිත්‍යාග කරන්න</option>
+                  <option value="other">වෙනත්</option>
+                </select>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-ink-700 mb-1">මුල් නම *</label>
+                  <input type="text" class="w-full px-4 py-2.5 border border-ink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="මුල් නම" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-ink-700 mb-1">අවසන් නම *</label>
+                  <input type="text" class="w-full px-4 py-2.5 border border-ink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="අවසන් නම" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-ink-700 mb-1">විද්‍යුත් තැපෑල *</label>
+                  <input type="email" class="w-full px-4 py-2.5 border border-ink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="විද්‍යුත් තැපැල් ලිපිනය" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-ink-700 mb-1">දුරකථනය *</label>
+                  <input type="tel" class="w-full px-4 py-2.5 border border-ink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="දුරකථනය" />
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-ink-700 mb-1">ඔබේ පණිවිඩය</label>
+                <textarea rows="4" class="w-full px-4 py-2.5 border border-ink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="ඔබ අප හා එක්වීමට කැමති ආකාරය ගැන තව දුරටත් අපට කියන්න"></textarea>
+              </div>
+              <button class="mt-4 px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-colors">Submit</button>
+            </div>
           </div>
-          <div class="bg-white rounded-xl p-8 shadow-sm border border-ink-100">
-            <h2 class="text-2xl font-bold text-ink-900 mb-4">හවුල්කාරිත්වය</h2>
-            <p class="text-ink-600">[CONTENT PLACEHOLDER — partnership info]</p>
-          </div>
-          <div class="bg-white rounded-xl p-8 shadow-sm border border-ink-100">
-            <h2 class="text-2xl font-bold text-ink-900 mb-4">අනුග්‍රාහකත්වය</h2>
-            <p class="text-ink-600">[CONTENT PLACEHOLDER — sponsorship info]</p>
-          </div>
-        </div>
       </div>
     </section>
   </main>

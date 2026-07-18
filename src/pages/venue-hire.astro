@@ -19,31 +19,58 @@ import Footer from "@components/Footer.astro";
     <!-- Content Placeholder -->
     <section class="py-16 lg:py-24">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-amber-50 border-l-4 border-brand-500 p-6 rounded-r-lg mb-12">
-          <p class="text-ink-700 font-medium">
-            [CONTENT PLACEHOLDER — paste real copy here]
-          </p>
-          <p class="text-ink-500 mt-2 text-sm">
-            Open https://www.wasilva.org/venue-hire in a browser, copy the rendered text,
-            and paste it here.
-          </p>
-        </div>
-
-        <!-- Suggested structure -->
-        <div class="space-y-8">
-          <div>
-            <h2 class="text-2xl font-bold text-ink-900 mb-4">පහසුකම්</h2>
-            <p class="text-ink-600">[CONTENT PLACEHOLDER — venue facilities description]</p>
+        
+          <div class="mb-10">
+            <p class="text-ink-600 leading-relaxed text-lg">ඔබගේ ඊළඟ අවස්ථාව සාහිත්‍යමය හා සංස්කෘතික උරුමයෙන් පිරුණු ස්ථානයක පවත්වන්න. ඩබ්ලිව්. ඒ. සිල්වා පදනම, පොත් නිකුතු, වැඩමුළු, සම්මන්ත්‍රණ සහ ප්‍රජා එකතුවීම් සඳහා ඉතා සුදුසු, යාන්ත්‍රණාත්මකව සකස් කරන ලද ස්ථානයක් සපයයි. ඉතිහාසමය වශයෙන් වැදගත් පසුබිමක පිහිටා ඇති අපගේ ස්ථානය, ආකර්ෂණය සහ කාර්යක්ෂමතාව එකට එක් කරමින් ඔබේ අවස්ථාව අමරණීය බවක් ලබා දෙයි.</p>
           </div>
-          <div>
-            <h2 class="text-2xl font-bold text-ink-900 mb-4">මිල ගණන්</h2>
-            <p class="text-ink-600">[CONTENT PLACEHOLDER — pricing info]</p>
+          <div class="bg-white rounded-xl p-8 shadow-sm border border-ink-100">
+            <h2 class="text-2xl font-bold text-ink-900 mb-6">ස්ථානය වෙන්කරවා ගැනීම</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-ink-700 mb-1">මුල් නම *</label>
+                <input type="text" class="w-full px-4 py-2.5 border border-ink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="මුල් නම" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-ink-700 mb-1">අවසන් නම *</label>
+                <input type="text" class="w-full px-4 py-2.5 border border-ink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="අවසන් නම" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-ink-700 mb-1">දුරකථනය *</label>
+                <input type="tel" class="w-full px-4 py-2.5 border border-ink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="දුරකථනය" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-ink-700 mb-1">විද්‍යුත් තැපෑල *</label>
+                <input type="email" class="w-full px-4 py-2.5 border border-ink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="විද්‍යුත් තැපැල් ලිපිනය" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-ink-700 mb-1">දිනය *</label>
+                <input type="date" class="w-full px-4 py-2.5 border border-ink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-ink-700 mb-1">වේලාව *</label>
+                <select class="w-full px-4 py-2.5 border border-ink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500">
+                  <option>වේලා අවකාශයක් තෝරන්න</option>
+                  <option>සම්පූර්ණ දිනය (10am-6pm)</option>
+                  <option>උදේ (10am-2pm)</option>
+                  <option>දවල් (2pm-6pm)</option>
+                  <option>සන්ධ්‍යා (2pm-6pm)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-ink-700 mb-1">සංවිධානය</label>
+                <input type="text" class="w-full px-4 py-2.5 border border-ink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="සංවිධානය" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-ink-700 mb-1">සභාගීන්ගේ සංඛ්‍යාව *</label>
+                <input type="number" class="w-full px-4 py-2.5 border border-ink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="සභාගීන්ගේ සංඛ්‍යාව" />
+              </div>
+            </div>
+            <div class="mt-4">
+              <label class="block text-sm font-medium text-ink-700 mb-1">සිදුවීම් විස්තර *</label>
+              <textarea rows="4" class="w-full px-4 py-2.5 border border-ink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="සිදුවීම් විස්තර"></textarea>
+            </div>
+            <button class="mt-4 px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-colors">යවන්න</button>
           </div>
-          <div>
-            <h2 class="text-2xl font-bold text-ink-900 mb-4">වෙන් කරවා ගැනීම සඳහා</h2>
-            <p class="text-ink-600">[CONTENT PLACEHOLDER — booking process]</p>
-          </div>
-        </div>
       </div>
     </section>
   </main>

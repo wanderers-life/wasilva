@@ -1,14 +1,17 @@
 ---
+import "../styles/global.css";
+
 export interface Props {
   title: string;
   description?: string;
+  lang?: "si" | "en";
 }
 
-const { title, description = "W.A. Silva Foundation — ඩබ්ලිව්. ඒ. සිල්වා පදනම" } = Astro.props;
+const { title, description = "W.A. Silva Foundation — ඩබ්ලිව්. ඒ. සිල්වා පදනම", lang = "si" } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="si">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

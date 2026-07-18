@@ -1,0 +1,45 @@
+---
+export interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+// Determine current locale from path
+const isEnglish = currentPath.startsWith("/en");
+const currentLocale = isEnglish ? "en" : "si";
+
+// Compute the opposite locale path
+function getOppositePath(path: string): string {
+  if (path.startsWith("/en")) {
+    // /en/about-us → /about-us
+    const stripped = path.replace(/^\/en(?:\/|$)/, "/");
+    return stripped || "/";
+  } else {
+    // /about-us → /en/about-us, / → /en/
+    const normalized = path === "/" ? "" : path;
+    return `/en${normalized}`;
+  }
+}
+
+const oppositePath = getOppositePath(currentPath);
+const oppositeLabel = isEnglish ? "සිංහල" : "English";
+const oppositeCode = isEnglish ? "si" : "en";
+---
+
+<div class="language-selector flex items-center gap-1">
+  <span class="text-xs text-ink-400 hidden sm:inline">
+    {isEnglish ? "සිංහල" : "EN"}
+  </span>
+  <a
+    href={oppositePath}
+    class="inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs font-medium transition-colors
+           bg-ink-100 text-ink-700 hover:bg-brand-100 hover:text-brand-700"
+    aria-label={`Switch to ${oppositeLabel}`}
+  >
+    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m0 4v2m0 4v2m0 4v2M5 3l14 18M19 3L5 21" />
+    </svg>
+    <span>{oppositeCode.toUpperCase()}</span>
+  </a>
+</div>

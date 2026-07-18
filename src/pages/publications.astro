@@ -19,29 +19,63 @@ import Footer from "@components/Footer.astro";
     <!-- Content Placeholder -->
     <section class="py-16 lg:py-24">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-amber-50 border-l-4 border-brand-500 p-6 rounded-r-lg mb-12">
-          <p class="text-ink-700 font-medium">
-            [CONTENT PLACEHOLDER — paste real copy here]
-          </p>
-          <p class="text-ink-500 mt-2 text-sm">
-            Open https://www.wasilva.org/publications in a browser, copy the rendered text,
-            and paste it here.
+        <div class="mb-10">
+          <h2 class="text-3xl font-bold text-ink-900 mb-6">හෙළදිව මහා නවකතාකරු ඩබ්ලිව්. ඒ. සිල්වා මහතාට අදාළ පොත් ප්‍රකාශනය</h2>
+          <p class="text-ink-600 leading-relaxed">
+            හෙළදිව මහා නවකතාකරු ඩබ්ලියු.ඒ. සිල්වා ශුරීන් හා සම්බන්ධ ග්‍රන්ථ එලි දැක්වීම. හෙළදිව මහා නවකතාකරු ඩබ්ලියු.ඒ. සිල්වා (1890/01/16 - 1967/05/31) සුරීන් විසින් සිදු කරන ලද භාෂා සාහිත්‍ය මෙහෙවර තවදුරටත් ව්‍යාප්ත කරමින් එහි ප්‍රතිලාභ වර්තමාන පරපුර වෙත ලබාදීම සඳහා පහත සදහන් පොත් පහ (5) එළි දැක්වීමට ඩබ්ලියු.ඒ. සිල්වා පදනම කටයුතු සිදු කොට ඇත. එම පොත් පහ පිළිබද කෙටි විස්තරයක් පහත දක්වා ඇත.
           </p>
         </div>
 
-        <!-- Suggested structure -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-ink-100">
-              <div class="aspect-[3/4] bg-ink-100 flex items-center justify-center">
-                <span class="text-ink-400 text-sm">Book Cover {i}</span>
-              </div>
-              <div class="p-4">
-                <h3 class="font-bold text-ink-900">[CONTENT PLACEHOLDER — Book Title {i}]</h3>
-                <p class="text-ink-500 text-sm mt-1">[Author name]</p>
-              </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-ink-100">
+            <div class="aspect-[3/4] bg-ink-100 flex items-center justify-center overflow-hidden">
+              <img src="/images/1749105634.jpg" alt="Kaikuttayi (The Handkerchief)" class="w-full h-full object-cover" />
             </div>
-          ))}
+            <div class="p-4">
+              <h3 class="font-bold text-ink-900">Kaikuttayi (The Handkerchief)</h3>
+              <p class="text-ink-500 text-sm mt-1">දෙමළ මාධ්‍යයෙන් එළි දක්වනු ලබන ඩබ්ලියු.ඒ. සිල්වා සුරීන් ගේ තෝරාගත් විශිෂ්ට කෙටි කතා එකොළහක (11) එකතුව - මෙය 'කයිකුට්ටෙයි' (ලේන්සුව) නම් කොට ඇති අතර ඩබ්ලියු.ඒ. සිල්වා සුරීන් ගේ නිර්මාණ දෙමළ මාධ්‍යයෙන් එළි දැක්වීමේ ප්‍රථම පියවර යි.</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-ink-100">
+            <div class="aspect-[3/4] bg-ink-100 flex items-center justify-center overflow-hidden">
+              <img src="/images/1749106381.jpg" alt="එක්දහස් එක් රැය (නව මුද්‍රණය)" class="w-full h-full object-cover" />
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-ink-900">එක්දහස් එක් රැය (නව මුද්‍රණය)</h3>
+              <p class="text-ink-500 text-sm mt-1">මුස්ලිම් හා ඉස්ලාම් සංස්කෘතිය හා බැදුණු 'අරාබි නිසොල්ලාසය' නම් වූ විශ්ව කිර්ති ග්‍රන්ථයේ ඩබ්ලියු.ඒ. සිල්වා විසින් සිදුකරන ලද සිංහල පරිවර්තනයේ කොටස් හතරෙන් පළමුවන කොටස.</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-ink-100">
+            <div class="aspect-[3/4] bg-ink-100 flex items-center justify-center overflow-hidden">
+              <img src="/images/1749107143.jpg" alt="ජෙනීගේ කතාව සහ තවත් කතා" class="w-full h-full object-cover" />
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-ink-900">ජෙනීගේ කතාව සහ තවත් කතා (කතා රත්නාකරය)</h3>
+              <p class="text-ink-500 text-sm mt-1">ඩබ්ලියු.ඒ. සිල්වා විසින් රචිත කෙටිකතා සංග්‍රහ හයෙන් දැනට මුද්‍රණයේ නොමැති කෙටිකතා සංග්‍රහය.</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-ink-100">
+            <div class="aspect-[3/4] bg-ink-100 flex items-center justify-center overflow-hidden">
+              <img src="/images/1749108200.jpg" alt="ඉෂ්ටාර්ථ සිද්ධියේ රහස" class="w-full h-full object-cover" />
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-ink-900">ඉෂ්ටාර්ථ සිද්ධියේ රහස (නව මුද්‍රණය)</h3>
+              <p class="text-ink-500 text-sm mt-1">ඩබ්ලියු.ඒ. සිල්වා විසින් රචිත පුද්ගල සංවර්ධනය හා සාර්ථකත්වය හා බැදුණු ඉපැරණි ග්‍රන්ථය (පළමු මුද්‍රණය).</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-ink-100">
+            <div class="aspect-[3/4] bg-ink-100 flex items-center justify-center overflow-hidden">
+              <img src="/images/1749108725.jpg" alt="ඩබ්ලියු.ඒ. සිල්වා - සාහිත්‍ය හා මිත්‍යාව" class="w-full h-full object-cover" />
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-ink-900">ඩබ්ලියු.ඒ. සිල්වා - සාහිත්‍ය හා මිත්‍යාව (නව මුද්‍රණය)</h3>
+              <p class="text-ink-500 text-sm mt-1">ඩබ්ලියු.ඒ. සිල්වා ගේ නිර්මාණ හා එම නිර්මාණවලට අදාල ව්වේචන / විමර්ශන හා සම්බන්ධ සාහිත්‍ය විචාර ග්‍රන්ථය.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

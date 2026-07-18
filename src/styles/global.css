@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sinhala: "Noto Sans Sinhala", "Iskoola Pota", system-ui, -apple-system, sans-serif;
+
+  --color-brand-50: #fdf8f0;
+  --color-brand-100: #f9edda;
+  --color-brand-200: #f2d8b0;
+  --color-brand-300: #e9be7d;
+  --color-brand-400: #e0a34e;
+  --color-brand-500: #d88c2c;
+  --color-brand-600: #c97721;
+  --color-brand-700: #a75d1e;
+  --color-brand-800: #864b20;
+  --color-brand-900: #6d3e1d;
+  --color-brand-950: #3b1f0e;
+
+  --color-ink-50: #f7f5f0;
+  --color-ink-100: #eae5d8;
+  --color-ink-200: #d5ccb3;
+  --color-ink-300: #bcae89;
+  --color-ink-400: #a89467;
+  --color-ink-500: #9a8354;
+  --color-ink-600: #846e48;
+  --color-ink-700: #6b573d;
+  --color-ink-800: #594837;
+  --color-ink-900: #4d3e32;
+  --color-ink-950: #2b211a;
+
+  --color-cream-50: #fefcf5;
+  --color-cream-100: #fdf7e6;
+  --color-cream-200: #f9edc4;
+  --color-cream-300: #f4df98;
+  --color-cream-400: #edcc63;
+  --color-cream-500: #e7b838;
+  --color-cream-600: #daa12a;
+  --color-cream-700: #b57e21;
+  --color-cream-800: #906520;
+  --color-cream-900: #75531f;
+  --color-cream-950: #402d0e;
+}

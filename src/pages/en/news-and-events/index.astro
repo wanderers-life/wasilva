@@ -1,0 +1,57 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import NewsCard from "@components/NewsCard.astro";
+
+const newsArticles = [
+  {
+    thumbnail: "/images/1749010955.jpg",
+    title: "Walk into W.A. Silva's world — Silvermere house museum tour",
+    excerpt: "An invitation to tour the W.A. Silva mansion museum...",
+    link: "/en/news-and-events/walk-into-wa-silvas-world",
+  },
+  {
+    thumbnail: "/images/1749023627.jpg",
+    title: "W.A. de Silva (1869–1942) — Biography",
+    excerpt: "The life story and literary contributions of W.A. de Silva...",
+    link: "/en/news-and-events/wa-de-silva-biography",
+  },
+  {
+    thumbnail: "/images/1749018870.jpg",
+    title: "W.A. Silva's 135th Birth Anniversary — Celebration",
+    excerpt: "A report on the 135th birth anniversary celebration of W.A. Silva...",
+    link: "/en/news-and-events/135th-birth-anniversary",
+  },
+];
+---
+
+<BaseLayout title="News & Events" lang="en">
+  <Header currentPath="/en/news-and-events" />
+
+  <main class="min-h-screen">
+    <section class="bg-ink-900 text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl lg:text-5xl font-bold mb-4">News & Events</h1>
+        <p class="text-cream-300 text-lg max-w-2xl">Latest news and upcoming events</p>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {newsArticles.map((article) => (
+            <NewsCard
+              thumbnail={article.thumbnail}
+              title={article.title}
+              excerpt={article.excerpt}
+              link={article.link}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
