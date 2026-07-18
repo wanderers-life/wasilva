@@ -1,4 +1,6 @@
 ---
+import { url } from "../lib/url";
+
 const navLinks = [
   { label: "මුල් පිටුව", href: "/" },
   { label: "අපි ගැන", href: "/about-us" },
@@ -47,7 +49,7 @@ const navLinks = [
           {navLinks.map((link) => (
             <li>
               <a
-                href={link.href}
+                href={url(link.href)}
                 class="text-cream-300 hover:text-white text-sm transition-colors"
               >
                 {link.label}

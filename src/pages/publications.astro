@@ -2,6 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
+import { url } from "../lib/url";
 ---
 
 <BaseLayout title="ප්‍රකාශන">
@@ -29,7 +30,7 @@ import Footer from "@components/Footer.astro";
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-ink-100">
             <div class="aspect-[3/4] bg-ink-100 flex items-center justify-center overflow-hidden">
-              <img src="/images/1749105634.jpg" alt="Kaikuttayi (The Handkerchief)" class="w-full h-full object-cover" />
+              <img src={url("/images/1749105634.jpg")} alt="Kaikuttayi (The Handkerchief)" class="w-full h-full object-cover" />
             </div>
             <div class="p-4">
               <h3 class="font-bold text-ink-900">Kaikuttayi (The Handkerchief)</h3>
@@ -39,7 +40,7 @@ import Footer from "@components/Footer.astro";
 
           <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-ink-100">
             <div class="aspect-[3/4] bg-ink-100 flex items-center justify-center overflow-hidden">
-              <img src="/images/1749106381.jpg" alt="එක්දහස් එක් රැය (නව මුද්‍රණය)" class="w-full h-full object-cover" />
+              <img src={url("/images/1749106381.jpg")} alt="එක්දහස් එක් රැය (නව මුද්‍රණය)" class="w-full h-full object-cover" />
             </div>
             <div class="p-4">
               <h3 class="font-bold text-ink-900">එක්දහස් එක් රැය (නව මුද්‍රණය)</h3>
@@ -49,7 +50,7 @@ import Footer from "@components/Footer.astro";
 
           <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-ink-100">
             <div class="aspect-[3/4] bg-ink-100 flex items-center justify-center overflow-hidden">
-              <img src="/images/1749107143.jpg" alt="ජෙනීගේ කතාව සහ තවත් කතා" class="w-full h-full object-cover" />
+              <img src={url("/images/1749107143.jpg")} alt="ජෙනීගේ කතාව සහ තවත් කතා" class="w-full h-full object-cover" />
             </div>
             <div class="p-4">
               <h3 class="font-bold text-ink-900">ජෙනීගේ කතාව සහ තවත් කතා (කතා රත්නාකරය)</h3>
@@ -59,7 +60,7 @@ import Footer from "@components/Footer.astro";
 
           <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-ink-100">
             <div class="aspect-[3/4] bg-ink-100 flex items-center justify-center overflow-hidden">
-              <img src="/images/1749108200.jpg" alt="ඉෂ්ටාර්ථ සිද්ධියේ රහස" class="w-full h-full object-cover" />
+              <img src={url("/images/1749108200.jpg")} alt="ඉෂ්ටාර්ථ සිද්ධියේ රහස" class="w-full h-full object-cover" />
             </div>
             <div class="p-4">
               <h3 class="font-bold text-ink-900">ඉෂ්ටාර්ථ සිද්ධියේ රහස (නව මුද්‍රණය)</h3>
@@ -69,7 +70,7 @@ import Footer from "@components/Footer.astro";
 
           <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-ink-100">
             <div class="aspect-[3/4] bg-ink-100 flex items-center justify-center overflow-hidden">
-              <img src="/images/1749108725.jpg" alt="ඩබ්ලියු.ඒ. සිල්වා - සාහිත්‍ය හා මිත්‍යාව" class="w-full h-full object-cover" />
+              <img src={url("/images/1749108725.jpg")} alt="ඩබ්ලියු.ඒ. සිල්වා - සාහිත්‍ය හා මිත්‍යාව" class="w-full h-full object-cover" />
             </div>
             <div class="p-4">
               <h3 class="font-bold text-ink-900">ඩබ්ලියු.ඒ. සිල්වා - සාහිත්‍ය හා මිත්‍යාව (නව මුද්‍රණය)</h3>

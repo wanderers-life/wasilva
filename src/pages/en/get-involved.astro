@@ -2,6 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
+import { url } from "../../lib/url";
 ---
 
 <BaseLayout title="Get Involved" lang="en">
@@ -28,12 +29,12 @@ import Footer from "@components/Footer.astro";
           <div class="bg-white rounded-xl p-8 shadow-sm border border-ink-100">
             <h3 class="text-xl font-bold text-ink-900 mb-3">Volunteer</h3>
             <p class="text-ink-600 mb-4">Join our team of volunteers and contribute to preserving Sri Lanka's literary heritage.</p>
-            <a href="/contact-us" class="text-brand-600 hover:text-brand-700 font-medium">Contact us to learn more →</a>
+            <a href={url("/contact-us")} class="text-brand-600 hover:text-brand-700 font-medium">Contact us to learn more →</a>
           </div>
           <div class="bg-white rounded-xl p-8 shadow-sm border border-ink-100">
             <h3 class="text-xl font-bold text-ink-900 mb-3">Donate</h3>
             <p class="text-ink-600 mb-4">Your financial contributions help us maintain Silvermere, publish books, and run our programs.</p>
-            <a href="/contact-us" class="text-brand-600 hover:text-brand-700 font-medium">Contact us to donate →</a>
+            <a href={url("/contact-us")} class="text-brand-600 hover:text-brand-700 font-medium">Contact us to donate →</a>
           </div>
         </div>
 

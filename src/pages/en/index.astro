@@ -6,6 +6,7 @@ import HeroCarousel from "@components/HeroCarousel.astro";
 import ProgramCard from "@components/ProgramCard.astro";
 import NewsCard from "@components/NewsCard.astro";
 import GalleryGrid from "@components/GalleryGrid.astro";
+import { url } from "../../lib/url";
 
 const programs = [
   {
@@ -232,12 +233,12 @@ const galleryImages = [
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
         {promoCards.map((card) => (
           <a
-            href={card.link}
+            href={url(card.link)}
             class="group relative overflow-hidden rounded-xl bg-ink-900 min-h-[200px] flex items-end"
           >
             <div
               class="absolute inset-0 bg-cover bg-center"
-            style={`background-image: url('${card.image}')`}
+            style={`background-image: url('${url(card.image)}')`}
             ></div>
             <div class="absolute inset-0 bg-gradient-to-t from-ink-950/90 via-ink-950/40 to-transparent"></div>
             <div class="relative p-6 w-full">
@@ -259,7 +260,7 @@ const galleryImages = [
           <p class="text-ink-600">Latest news and upcoming events</p>
         </div>
         <a
-          href="/news-and-events"
+          href={url("/news-and-events")}
           class="hidden sm:inline-flex items-center text-brand-600 hover:text-brand-700 font-medium"
         >
           View all

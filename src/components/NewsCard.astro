@@ -7,6 +7,7 @@ export interface Props {
 }
 
 const { thumbnail, title, excerpt, link } = Astro.props;
+import { url } from "../lib/url";
 ---
 
 <article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-ink-100">
@@ -22,7 +23,7 @@ const { thumbnail, title, excerpt, link } = Astro.props;
     <h3 class="text-base font-bold text-ink-900 mb-2 leading-snug line-clamp-2">{title}</h3>
     <p class="text-ink-600 text-sm leading-relaxed mb-4 line-clamp-3">{excerpt}</p>
     <a
-      href={link}
+      href={url(link)}
       class="inline-flex items-center text-brand-600 hover:text-brand-700 font-medium text-sm transition-colors"
     >
       වැඩිදුර කියවන්න

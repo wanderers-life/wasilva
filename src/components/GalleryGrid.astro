@@ -13,7 +13,9 @@ const categories = [
   { id: "special-events", label: "විශේෂ සිදුවීම්" },
   { id: "books", label: "පොත්" },
 ];
+import { url } from "../lib/url";
 ---
+
 
 <div class="gallery-grid">
   <!-- Filter Tabs -->
@@ -64,7 +66,7 @@ const categories = [
   {showMoreLink && (
     <div class="text-center mt-8">
       <a
-        href="/gallery"
+        href={url("/gallery")}
         class="inline-flex items-center px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-colors"
       >
         තවත් පින්තූර

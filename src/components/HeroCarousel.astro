@@ -1,4 +1,6 @@
 ---
+import { url } from "../lib/url";
+
 const slides = [
   {
     eyebrow: "මුද්‍රණ සංග්‍රහ මැදුර සහ වර්ණලේඛන එකතුව",
@@ -36,7 +38,7 @@ const slides = [
         <!-- Background Image -->
         <div
           class="absolute inset-0 bg-cover bg-center"
-          style={`background-image: url('${slide.image}')`}
+          style={`background-image: url('${url(slide.image)}')`}
         ></div>
         <!-- Overlay -->
         <div class="absolute inset-0 bg-gradient-to-t from-ink-950/80 via-ink-950/40 to-ink-950/20"></div>
@@ -52,13 +54,13 @@ const slides = [
               </h1>
               <div class="flex flex-wrap gap-3">
                 <a
-                  href="/about-us"
+                  href={url("/about-us")}
                   class="inline-flex items-center px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-colors text-sm sm:text-base"
                 >
                   තවදුරටත් කියවන්න
                 </a>
                 <a
-                  href="/get-involved"
+                  href={url("/get-involved")}
                   class="inline-flex items-center px-6 py-3 bg-white/20 hover:bg-white/30 text-white font-semibold rounded-lg backdrop-blur-sm transition-colors text-sm sm:text-base border border-white/30"
                 >
                   දැන් එක්වන්න

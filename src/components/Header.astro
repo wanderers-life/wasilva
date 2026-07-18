@@ -1,5 +1,6 @@
 ---
 import LanguageSelector from "@components/LanguageSelector.astro";
+import { url } from "../lib/url";
 
 const navLinks = [
   { label: "මුල් පිටුව", href: "/" },
@@ -19,9 +20,9 @@ const { currentPath = "/" } = Astro.props;
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 lg:h-20">
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-3 shrink-0">
+      <a href={url("/")} class="flex items-center gap-3 shrink-0">
         <img
-          src="/images/logo.png"
+          src={url("/images/logo.png")}
           alt="W.A. Silva Foundation"
           class="h-10 w-auto"
           width="40"
@@ -38,7 +39,7 @@ const { currentPath = "/" } = Astro.props;
       <nav class="hidden lg:flex items-center gap-1">
         {navLinks.map((link) => (
           <a
-            href={link.href}
+            href={url(link.href)}
             class={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
               currentPath === link.href
                 ? "text-brand-700 bg-brand-50"
@@ -54,7 +55,7 @@ const { currentPath = "/" } = Astro.props;
       <div class="hidden lg:flex items-center gap-3">
         <LanguageSelector currentPath={currentPath} />
         <a
-          href="/get-involved"
+          href={url("/get-involved")}
           class="inline-flex items-center px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-colors text-sm"
         >
           දායකත්වය දක්වන්න
@@ -80,7 +81,7 @@ const { currentPath = "/" } = Astro.props;
     <div class="px-4 py-3 space-y-1">
       {navLinks.map((link) => (
         <a
-          href={link.href}
+          href={url(link.href)}
           class={`block px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
             currentPath === link.href
               ? "text-brand-700 bg-brand-50"
@@ -91,7 +92,7 @@ const { currentPath = "/" } = Astro.props;
         </a>
       ))}
       <a
-        href="/get-involved"
+        href={url("/get-involved")}
         class="block mt-2 px-4 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg text-center transition-colors text-sm"
       >
         දායකත්වය දක්වන්න
