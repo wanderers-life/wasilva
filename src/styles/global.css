@@ -1,3 +1,51 @@
+:root {
+  /* Color */
+  --color-ink: #1C1A17;
+  --color-paper: #EDE6D6;
+  --color-oxblood: #7A2E2A;
+  --color-brass: #B08D57;
+  --color-sepia: #8B6F47;
+
+  /* Type families */
+  --font-display-en: "Fraunces", serif;
+  --font-body-en: "Source Serif 4", serif;
+  --font-sinhala: "Noto Sans Sinhala", sans-serif;
+
+  /* Type scale — English */
+  --text-hero-en: clamp(2.5rem, 5vw, 4rem);
+  --text-h2-en: clamp(2rem, 3.5vw, 2.75rem);
+  --text-card-title-en: clamp(1.25rem, 2vw, 1.5rem);
+  --text-body-en: 1rem;
+  --text-caption-en: 0.875rem;
+
+  /* Type scale — Sinhala (larger + looser line-height) */
+  --text-hero-si: clamp(2.25rem, 4.5vw, 3.5rem);
+  --text-h2-si: clamp(1.875rem, 3.25vw, 2.5rem);
+  --text-card-title-si: clamp(1.25rem, 2vw, 1.5rem);
+  --text-body-si: 1.0625rem;
+  --text-caption-si: 0.875rem;
+
+  /* Line heights */
+  --lh-hero-en: 1.15;
+  --lh-hero-si: 1.35;
+  --lh-body-en: 1.6;
+  --lh-body-si: 1.9;
+
+  /* Motion */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}
+
 @import "tailwindcss";
 
 @theme {
@@ -38,4 +86,180 @@
   --color-cream-800: #906520;
   --color-cream-900: #75531f;
   --color-cream-950: #402d0e;
+
+  --color-oxblood-50: #fdf5f4;
+  --color-oxblood-100: #f9e8e7;
+  --color-oxblood-200: #f2d1cf;
+  --color-oxblood-300: #e6adab;
+  --color-oxblood-400: #d6807d;
+  --color-oxblood-500: #c45a56;
+  --color-oxblood-600: #b4433f;
+  --color-oxblood-700: #963430;
+  --color-oxblood-800: #7a2e2a;
+  --color-oxblood-900: #662927;
+  --color-oxblood-950: #371110;
+
+  --color-brass-50: #fbf7f0;
+  --color-brass-100: #f4ecda;
+  --color-brass-200: #e9d6b4;
+  --color-brass-300: #dbba85;
+  --color-brass-400: #cd9b5e;
+  --color-brass-500: #c38840;
+  --color-brass-600: #b08d57;
+  --color-brass-700: #8c6d40;
+  --color-brass-800: #705937;
+  --color-brass-900: #5c4a2f;
+  --color-brass-950: #332618;
+
+  --color-sepia-50: #f8f5f0;
+  --color-sepia-100: #eee7d8;
+  --color-sepia-200: #ddceb3;
+  --color-sepia-300: #c8ae87;
+  --color-sepia-400: #b69364;
+  --color-sepia-500: #a88153;
+  --color-sepia-600: #8b6f47;
+  --color-sepia-700: #70583b;
+  --color-sepia-800: #5e4a34;
+  --color-sepia-900: #4f3f2e;
+  --color-sepia-950: #2d2118;
+}
+
+/* =============================================
+   Base color application
+   ============================================= */
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+a {
+  color: var(--color-oxblood);
+}
+
+a:hover {
+  color: var(--color-oxblood);
+  opacity: 0.85;
+}
+
+/* Secondary / muted text */
+.text-muted,
+.caption,
+.date,
+.eyebrow {
+  color: var(--color-sepia);
+}
+
+/* =============================================
+   Typography — language-specific rules
+   ============================================= */
+
+:lang(si) {
+  font-family: var(--font-sinhala);
+  font-feature-settings: "liga" 1, "clig" 1;
+}
+:lang(en) {
+  font-family: var(--font-body-en);
+}
+
+h1:lang(en), .hero-headline:lang(en) {
+  font-family: var(--font-display-en);
+  font-size: var(--text-hero-en);
+  line-height: var(--lh-hero-en);
+}
+h1:lang(si), .hero-headline:lang(si) {
+  font-size: var(--text-hero-si);
+  line-height: var(--lh-hero-si);
+  font-weight: 700;
+}
+
+p:lang(en) {
+  font-size: var(--text-body-en);
+  line-height: var(--lh-body-en);
+}
+p:lang(si) {
+  font-size: var(--text-body-si);
+  line-height: var(--lh-body-si);
+}
+
+/* =============================================
+   Animations
+   ============================================= */
+
+/* 1. Hero headline: fade in + rise 12px */
+@keyframes fade-rise-hero {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-headline {
+  animation: fade-rise-hero var(--duration-slow) var(--ease-standard) forwards;
+}
+
+/* 2. Cards: fade in + rise 8px (IntersectionObserver adds .card-visible) */
+.card-animate {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--duration-base) var(--ease-standard),
+              transform var(--duration-base) var(--ease-standard);
+}
+
+.card-animate.card-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delay for card siblings within the same grid */
+.card-animate:nth-child(1) { transition-delay: 0ms; }
+.card-animate:nth-child(2) { transition-delay: 60ms; }
+.card-animate:nth-child(3) { transition-delay: 120ms; }
+.card-animate:nth-child(4) { transition-delay: 180ms; }
+.card-animate:nth-child(5) { transition-delay: 240ms; }
+.card-animate:nth-child(6) { transition-delay: 300ms; }
+.card-animate:nth-child(7) { transition-delay: 360ms; }
+.card-animate:nth-child(8) { transition-delay: 420ms; }
+.card-animate:nth-child(9) { transition-delay: 480ms; }
+.card-animate:nth-child(10) { transition-delay: 540ms; }
+.card-animate:nth-child(n+11) { transition-delay: 600ms; }
+
+/* 3. Card image hover: grayscale(40%) sepia(20%) → none, scale 1.03 */
+.card-img {
+  filter: grayscale(40%) sepia(20%);
+  transition: filter var(--duration-base) var(--ease-standard),
+              transform var(--duration-base) var(--ease-standard);
+}
+
+.group:hover .card-img,
+.card-link:hover .card-img,
+a:hover .card-img {
+  filter: none;
+  transform: scale(1.03);
+}
+
+/* 4. Nav link underline (grows from center to full width) */
+.nav-link-underline {
+  position: relative;
+}
+
+.nav-link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-oxblood);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.nav-link-underline:hover::after {
+  transform: scaleX(1);
 }

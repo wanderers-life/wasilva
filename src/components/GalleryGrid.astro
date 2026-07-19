@@ -44,13 +44,13 @@ import { url } from "../lib/url";
   >
     {images.map((img) => (
       <div
-        class="gallery-item aspect-square overflow-hidden rounded-lg bg-ink-100 cursor-pointer group relative"
+        class="gallery-item card-animate aspect-square overflow-hidden rounded-lg bg-ink-100 cursor-pointer group relative"
         data-category={img.category}
       >
         <img
           src={url(img.src)}
           alt={img.caption || "Gallery image"}
-          class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          class="card-img w-full h-full object-cover"
           loading="lazy"
         />
         {img.caption && (

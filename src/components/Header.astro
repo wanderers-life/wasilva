@@ -67,9 +67,9 @@ const { currentPath = "/" } = Astro.props;
         {navLinks.map((link) => (
           <a
             href={url(link.href)}
-            class={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+            class={`nav-link-underline px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
               currentPath === link.href
-                ? "text-brand-700 bg-brand-50"
+                ? "text-oxblood-800 bg-oxblood-50"
                 : "text-ink-600 hover:text-ink-900 hover:bg-ink-50"
             }`}
           >
@@ -83,7 +83,7 @@ const { currentPath = "/" } = Astro.props;
         <LanguageSelector currentPath={currentPath} />
         <a
           href={url("/get-involved")}
-          class="inline-flex items-center px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-colors text-sm"
+          class="inline-flex items-center px-5 py-2.5 bg-oxblood-800 hover:bg-oxblood-900 text-white font-semibold rounded-lg transition-colors text-sm"
         >
           දායකත්වය දක්වන්න
         </a>
@@ -110,9 +110,9 @@ const { currentPath = "/" } = Astro.props;
         <a
           href={url(link.href)}
           class={`block px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-            currentPath === link.href
-              ? "text-brand-700 bg-brand-50"
-              : "text-ink-600 hover:text-ink-900 hover:bg-ink-50"
+              currentPath === link.href
+                ? "text-oxblood-800 bg-oxblood-50"
+                : "text-ink-600 hover:text-ink-900 hover:bg-ink-50"
           }`}
         >
           {link.label}
@@ -120,7 +120,7 @@ const { currentPath = "/" } = Astro.props;
       ))}
       <a
         href={url("/get-involved")}
-        class="block mt-2 px-4 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg text-center transition-colors text-sm"
+        class="block mt-2 px-4 py-2.5 bg-oxblood-800 hover:bg-oxblood-900 text-white font-semibold rounded-lg text-center transition-colors text-sm"
       >
         දායකත්වය දක්වන්න
       </a>

@@ -10,12 +10,12 @@ const { thumbnail, title, excerpt, link } = Astro.props;
 import { url } from "../lib/url";
 ---
 
-<article class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-ink-100">
+<article class="card-animate bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-ink-100">
   <div class="aspect-[16/9] overflow-hidden bg-ink-100 flex items-center justify-center">
     <img
       src={url(thumbnail)}
       alt={title}
-      class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+      class="card-img w-full h-full object-cover"
       loading="lazy"
     />
   </div>
