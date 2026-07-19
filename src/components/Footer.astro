@@ -1,7 +1,7 @@
 ---
 import { url } from "../lib/url";
 
-const navLinks = [
+const navLinksSi = [
   { label: "මුල් පිටුව", href: "/" },
   { label: "අපි ගැන", href: "/about-us" },
   { label: "පුවත් සහ සිදුවීම්", href: "/news-and-events" },
@@ -11,6 +11,21 @@ const navLinks = [
   { label: "ගැලරිය", href: "/gallery" },
   { label: "අපව සම්බන්ධ කරගන්න", href: "/contact-us" },
 ];
+
+const navLinksEn = [
+  { label: "Home", href: "/en" },
+  { label: "About Us", href: "/en/about-us" },
+  { label: "News & Events", href: "/en/news-and-events" },
+  { label: "Get Involved", href: "/en/get-involved" },
+  { label: "Venue Hire", href: "/en/venue-hire" },
+  { label: "Publications", href: "/en/publications" },
+  { label: "Gallery", href: "/en/gallery" },
+  { label: "Contact Us", href: "/en/contact-us" },
+];
+
+const { lang = "si" } = Astro.props;
+const navLinks = lang === "en" ? navLinksEn : navLinksSi;
+const isEn = lang === "en";
 ---
 
 <footer class="bg-ink-950 text-cream-100">
@@ -18,25 +33,31 @@ const navLinks = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
       <!-- About -->
       <div class="lg:col-span-1">
-        <h3 class="text-lg font-bold text-white mb-4">ඩබ්ලිව්. ඒ. සිල්වා පදනම</h3>
+        <h3 class="text-lg font-bold text-white mb-4">
+          {isEn ? "W.A. Silva Foundation" : "ඩබ්ලිව්. ඒ. සිල්වා පදනම"}
+        </h3>
         <p class="text-cream-200 text-sm leading-relaxed">
-          ශ්‍රී ලංකාවේ සාහිත්‍ය, භාෂා හා සංස්කෘතික උරුමය සුරැකීම සහ ප්‍රවර්ධනය කිරීම උදෙසා කැපවූ ආයතනයකි.
+          {isEn
+            ? "A foundation dedicated to preserving and promoting the literary, linguistic and cultural heritage of Sri Lanka."
+            : "ශ්‍රී ලංකාවේ සාහිත්‍ය, භාෂා හා සංස්කෘතික උරුමය සුරැකීම සහ ප්‍රවර්ධනය කිරීම උදෙසා කැපවූ ආයතනයකි."}
         </p>
         <!-- Newsletter Signup (placeholder) -->
         <div class="mt-6">
           <label class="block text-sm font-medium text-cream-300 mb-2">
-            ඔබගේ විද්‍යුත් තැපැල් ලිපිනය ඇතුළත් කර අපගේ අති විශිෂ්ට යාවත්කාලීන, පුවත් සහ සහාය ලබා ගන්න
+            {isEn
+              ? "Enter your email address to receive updates, news and support."
+              : "ඔබගේ විද්‍යුත් තැපැල් ලිපිනය ඇතුළත් කර අපගේ අති විශිෂ්ට යාවත්කාලීන, පුවත් සහ සහාය ලබා ගන්න"}
           </label>
           <div class="flex gap-2">
             <input
               type="email"
-              placeholder="ඔබගේ ඊ-මේල් ලිපිනය"
+              placeholder={isEn ? "Your email address" : "ඔබගේ ඊ-මේල් ලිපිනය"}
               class="flex-1 px-3 py-2 bg-ink-800 border border-ink-700 rounded-lg text-sm text-cream-100 placeholder-ink-400 focus:outline-none focus:ring-2 focus:ring-brand-500"
             />
             <button
               class="px-4 py-2 bg-oxblood-800 hover:bg-oxblood-900 text-white text-sm font-semibold rounded-lg transition-colors"
             >
-              දායක වන්න
+              {isEn ? "Subscribe" : "දායක වන්න"}
             </button>
           </div>
         </div>
@@ -44,7 +65,9 @@ const navLinks = [
 
       <!-- Nav Menu -->
       <div>
-        <h3 class="text-lg font-bold text-white mb-4">අඩවි සිතියම</h3>
+        <h3 class="text-lg font-bold text-white mb-4">
+          {isEn ? "Site Map" : "අඩවි සිතියම"}
+        </h3>
         <ul class="space-y-2">
           {navLinks.map((link) => (
             <li>
@@ -61,7 +84,9 @@ const navLinks = [
 
       <!-- Contact -->
       <div class="lg:col-span-1">
-        <h3 class="text-lg font-bold text-white mb-4">අපව සම්බන්ධ කරගන්න</h3>
+        <h3 class="text-lg font-bold text-white mb-4">
+          {isEn ? "Contact Us" : "අපව සම්බන්ධ කරගන්න"}
+        </h3>
         <div class="space-y-3 text-sm text-cream-300">
           <p class="flex items-start gap-2">
             <svg class="w-5 h-5 mt-0.5 shrink-0" style="color: var(--color-brass)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -69,9 +94,9 @@ const navLinks = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
             <span>
-              අංක 126, ඩබ්ලිව්. ඒ. සිල්වා මාවත,<br />
-              වැල්ලවත්ත, කොළඹ 6,<br />
-              ශ්‍රී ලංකාව
+              {isEn
+                ? <>No. 126, W.A. Silva Mawatha,<br />Wellawatte, Colombo 6,<br />Sri Lanka</>
+                : <>අංක 126, ඩබ්ලිව්. ඒ. සිල්වා මාවත,<br />වැල්ලවත්ත, කොළඹ 6,<br />ශ්‍රී ලංකාව</>}
             </span>
           </p>
           <p class="flex items-center gap-2">
@@ -99,7 +124,7 @@ const navLinks = [
     <!-- Copyright -->
     <div class="mt-10 pt-8 border-t border-ink-800 text-center">
       <p class="text-cream-400 text-sm">
-        &copy; {new Date().getFullYear()} ඩබ්ලිව්. ඒ. සිල්වා පදනම. සියලුම හිමිකම් ඇවිරිණි.
+        &copy; {new Date().getFullYear()} {isEn ? "W.A. Silva Foundation. All rights reserved." : "ඩබ්ලිව්. ඒ. සිල්වා පදනම. සියලුම හිමිකම් ඇවිරිණි."}
       </p>
     </div>
   </div>

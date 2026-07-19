@@ -1,0 +1,153 @@
+---
+import ProgramCard from "@components/ProgramCard.astro";
+import type { Props as ProgramCardProps } from "@components/ProgramCard.astro";
+
+export interface Props {
+  programs: ProgramCardProps[];
+}
+
+const { programs } = Astro.props;
+const cardsPerSlide = 3;
+const totalSlides = Math.max(1, programs.length - cardsPerSlide + 1);
+---
+
+<div
+  id="program-carousel"
+  class="program-carousel relative z-10 -mt-24 sm:-mt-28 lg:-mt-36"
+  data-current="0"
+  data-total={totalSlides}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative">
+      <!-- Cards Container -->
+      <div class="overflow-hidden rounded-xl">
+        <div id="program-carousel-track" class="flex transition-transform duration-500 ease-in-out">
+          {programs.map((program, i) => (
+            <div
+              class="carousel-card shrink-0 w-[85vw] sm:w-[300px] lg:w-[calc(33.333%-1rem)] px-3"
+              data-index={i}
+            >
+              <ProgramCard
+                image={program.image}
+                title={program.title}
+                description={program.description}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Prev Button -->
+      <button
+        id="program-carousel-prev"
+        class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 lg:-translate-x-6 z-10 p-2 rounded-full bg-white shadow-lg hover:bg-gray-50 text-ink-800 transition-colors"
+        aria-label="Previous"
+        type="button"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <!-- Next Button -->
+      <button
+        id="program-carousel-next"
+        class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 lg:translate-x-6 z-10 p-2 rounded-full bg-white shadow-lg hover:bg-gray-50 text-ink-800 transition-colors"
+        aria-label="Next"
+        type="button"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Dot Indicators -->
+    <div class="flex justify-center gap-2 mt-4">
+      {Array.from({ length: totalSlides }).map((_, i) => (
+        <button
+          class="carousel-dot w-2.5 h-2.5 rounded-full transition-all"
+          class:list={{
+            "bg-brand-600 w-6": i === 0,
+            "bg-ink-300 hover:bg-ink-400": i !== 0,
+          }}
+          data-index={i}
+          aria-label={`Go to slide ${i + 1}`}
+          type="button"
+        ></button>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const container = document.getElementById("program-carousel");
+    if (!container) return;
+
+    const track = document.getElementById("program-carousel-track");
+    const prevBtn = document.getElementById("program-carousel-prev");
+    const nextBtn = document.getElementById("program-carousel-next");
+    const dots = container.querySelectorAll(".carousel-dot");
+    const cards = track.querySelectorAll(".carousel-card");
+    const totalSlides = parseInt(container.dataset.total);
+
+    let current = 0;
+    let interval;
+    const visibleCards = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
+
+    function getCardWidth() {
+      if (!cards.length) return 0;
+      return cards[0].offsetWidth + parseFloat(getComputedStyle(cards[0]).marginLeft || 0) + parseFloat(getComputedStyle(cards[0]).marginRight || 0);
+    }
+
+    function goTo(index) {
+      current = ((index % totalSlides) + totalSlides) % totalSlides;
+      const cardWidth = getCardWidth();
+      // Slide by 1 card at a time for continuity
+      const offset = current * cardWidth;
+      track.style.transform = `translateX(-${offset}px)`;
+
+      dots.forEach((d, i) => {
+        d.classList.toggle("bg-brand-600", i === current);
+        d.classList.toggle("w-6", i === current);
+        d.classList.toggle("bg-ink-300", i !== current);
+        d.classList.toggle("hover:bg-ink-400", i !== current);
+      });
+    }
+
+    function next() {
+      goTo(current + 1);
+    }
+
+    function prev() {
+      goTo(current - 1);
+    }
+
+    function resetInterval() {
+      clearInterval(interval);
+      interval = setInterval(next, 4000);
+    }
+
+    if (prevBtn) prevBtn.addEventListener("click", () => { prev(); resetInterval(); });
+    if (nextBtn) nextBtn.addEventListener("click", () => { next(); resetInterval(); });
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        goTo(parseInt(dot.dataset.index));
+        resetInterval();
+      });
+    });
+
+    // Recalculate on resize
+    window.addEventListener("resize", () => goTo(current));
+
+    interval = setInterval(next, 4000);
+  })();
+</script>
+
+<style>
+  .program-carousel :global(.carousel-card) {
+    flex: 0 0 auto;
+  }
+</style>

@@ -1,7 +1,7 @@
 ---
 import { url } from "../lib/url";
 
-const slides = [
+const slidesSi = [
   {
     eyebrow: "මුද්‍රණ සංග්‍රහ මැදුර සහ වර්ණලේඛන එකතුව",
     headline:
@@ -21,6 +21,31 @@ const slides = [
     image: "/images/1748861223.jpg",
   },
 ];
+
+const slidesEn = [
+  {
+    eyebrow: "Print Collection & Typography",
+    headline:
+      "A complete traditional letterpress printing machine and a collection of wooden and metal typefaces are on display at the mansion.",
+    image: "/images/1748858685.jpg",
+  },
+  {
+    eyebrow: "Library & Archive",
+    headline:
+      "The W.A. Silva mansion is home to the Sri Lanka Institute of Typography and serves as an archive of books and resources on indigenous languages, scripts and literature.",
+    image: "/images/1748859875.jpg",
+  },
+  {
+    eyebrow: "Workshops & Events",
+    headline:
+      "The W.A. Silva mansion organizes workshops, discussions and events related to printing, scripts, language and literature.",
+    image: "/images/1748861223.jpg",
+  },
+];
+
+const { lang = "si" } = Astro.props;
+const slides = lang === "en" ? slidesEn : slidesSi;
+const isEn = lang === "en";
 ---
 
 <div
@@ -49,21 +74,21 @@ const slides = [
               <span class="inline-block text-brand-400 text-sm sm:text-base font-semibold tracking-wide uppercase mb-3">
                 {slide.eyebrow}
               </span>
-              <h1 class="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6 animate-hero-headline">
+              <h1 class="text-white text-[18px] font-bold leading-tight mb-6 animate-hero-headline">
                 {slide.headline}
               </h1>
               <div class="flex flex-wrap gap-3">
                 <a
-                  href={url("/about-us")}
+                  href={url(isEn ? "/en/about-us" : "/about-us")}
                   class="inline-flex items-center px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-semibold rounded-lg transition-colors text-sm sm:text-base"
                 >
-                  තවදුරටත් කියවන්න
+                  {isEn ? "Read More" : "තවදුරටත් කියවන්න"}
                 </a>
                 <a
-                  href={url("/get-involved")}
+                  href={url(isEn ? "/en/get-involved" : "/get-involved")}
                   class="inline-flex items-center px-6 py-3 bg-white/20 hover:bg-white/30 text-white font-semibold rounded-lg backdrop-blur-sm transition-colors text-sm sm:text-base border border-white/30"
                 >
-                  දැන් එක්වන්න
+                  {isEn ? "Get Involved" : "දැන් එක්වන්න"}
                 </a>
               </div>
             </div>

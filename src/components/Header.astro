@@ -1,8 +1,8 @@
----
+ ---
 import LanguageSelector from "@components/LanguageSelector.astro";
 import { url } from "../lib/url";
 
-const navLinks = [
+const navLinksSi = [
   { label: "මුල් පිටුව", href: "/" },
   { label: "අපි ගැන", href: "/about-us" },
   { label: "පුවත් සහ සිදුවීම්", href: "/news-and-events" },
@@ -13,41 +13,66 @@ const navLinks = [
   { label: "අපව සම්බන්ධ කරගන්න", href: "/contact-us" },
 ];
 
-const { currentPath = "/" } = Astro.props;
+const navLinksEn = [
+  { label: "Home", href: "/en" },
+  { label: "About Us", href: "/en/about-us" },
+  { label: "News & Events", href: "/en/news-and-events" },
+  { label: "Get Involved", href: "/en/get-involved" },
+  { label: "Venue Hire", href: "/en/venue-hire" },
+  { label: "Publications", href: "/en/publications" },
+  { label: "Gallery", href: "/en/gallery" },
+  { label: "Contact Us", href: "/en/contact-us" },
+];
+
+const { currentPath = "/", lang = "si" } = Astro.props;
+const navLinks = lang === "en" ? navLinksEn : navLinksSi;
+const isEn = lang === "en";
 ---
 
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-ink-100 shadow-sm">
-  <!-- Top Utility Bar -->
-  <div class="bg-ink-900 text-cream-200 text-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-wrap items-center justify-between py-1.5 gap-x-4 gap-y-1">
-        <span class="flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5 shrink-0 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-          අංක 126, ඩබ්ලිව්. ඒ. සිල්වා මාවත, වැල්ලවත්ත, කොළඹ 6, ශ්‍රී ලංකාව
-        </span>
-        <span class="flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5 shrink-0 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-          </svg>
-          +94 712 748 174
-        </span>
-        <span class="flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5 shrink-0 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          </svg>
-          info@wasilva.org
-        </span>
-      </div>
+<!-- Top Utility Bar — NOT sticky (scrolls away) -->
+<div class="bg-black text-white text-xs">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap items-center justify-between py-1.5 gap-x-4 gap-y-1">
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 shrink-0 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        {isEn
+          ? "No. 126, W.A. Silva Mawatha, Wellawatte, Colombo 6, Sri Lanka"
+          : "අංක 126, ඩබ්ලිව්. ඒ. සිල්වා මාවත, වැල්ලවත්ත, කොළඹ 6, ශ්‍රී ලංකාව"}
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 shrink-0 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        </svg>
+        +94 712 748 174
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 shrink-0 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        info@wasilva.org
+      </span>
+      <a
+        href={url(isEn ? "/en/get-involved" : "/get-involved")}
+        class="inline-flex items-center px-4 py-1.5 font-semibold rounded text-xs text-white transition-colors"
+        style="background-color: #ff5100;"
+        onmouseover="this.style.backgroundColor='#e64900'"
+        onmouseout="this.style.backgroundColor='#ff5100'"
+      >
+        {isEn ? "Donate" : "දායකත්වය දක්වන්න"}
+      </a>
     </div>
   </div>
+</div>
 
+<!-- Nav Section — sticky -->
+<header class="sticky top-0 z-50 shadow-md" style="background-color: #ff5100;">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16 lg:h-20">
+    <div class="flex items-center h-16 lg:h-20">
       <!-- Logo -->
-      <a href={url("/")} class="flex items-center gap-3 shrink-0">
+      <a href={url("/")} class="flex items-center shrink-0 mr-4 lg:mr-8">
         <img
           src={url("/images/logo.png")}
           alt="W.A. Silva Foundation"
@@ -56,21 +81,21 @@ const { currentPath = "/" } = Astro.props;
           height="40"
           onerror="this.style.display='none'"
         />
-        <div class="hidden sm:block">
-          <span class="text-lg font-bold text-ink-900 leading-tight block">ඩබ්ලිව්. ඒ. සිල්වා</span>
-          <span class="text-xs text-ink-500 leading-tight block">පදනම</span>
-        </div>
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden lg:flex items-center gap-1">
+      <nav class="hidden lg:flex items-center gap-1 flex-1">
         {navLinks.map((link) => (
           <a
             href={url(link.href)}
-            class={`nav-link-underline px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+            class={`nav-link-underline rounded-lg font-medium transition-colors whitespace-nowrap ${
+              isEn
+                ? "text-sm px-3 py-2 font-body-en"
+                : "text-xs px-1.5 py-2 font-sinhala leading-tight"
+            } ${
               currentPath === link.href
-                ? "text-oxblood-800 bg-oxblood-50"
-                : "text-ink-600 hover:text-ink-900 hover:bg-ink-50"
+                ? "text-white bg-white/25"
+                : "text-white/90 hover:text-white hover:bg-white/10"
             }`}
           >
             {link.label}
@@ -78,21 +103,15 @@ const { currentPath = "/" } = Astro.props;
         ))}
       </nav>
 
-      <!-- Right-side actions: Language Selector + Donate -->
-      <div class="hidden lg:flex items-center gap-3">
+      <!-- Right-side: Language Selector only -->
+      <div class="hidden lg:flex items-center ml-auto">
         <LanguageSelector currentPath={currentPath} />
-        <a
-          href={url("/get-involved")}
-          class="inline-flex items-center px-5 py-2.5 bg-oxblood-800 hover:bg-oxblood-900 text-white font-semibold rounded-lg transition-colors text-sm"
-        >
-          දායකත්වය දක්වන්න
-        </a>
       </div>
 
       <!-- Mobile Hamburger -->
       <button
         id="mobile-menu-btn"
-        class="lg:hidden p-2 rounded-lg text-ink-600 hover:bg-ink-50 transition-colors"
+        class="lg:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
         aria-label="Menu"
         type="button"
       >
@@ -104,25 +123,25 @@ const { currentPath = "/" } = Astro.props;
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden lg:hidden border-t border-ink-100 bg-white">
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-white/20" style="background-color: #e64900;">
     <div class="px-4 py-3 space-y-1">
       {navLinks.map((link) => (
         <a
           href={url(link.href)}
           class={`block px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
               currentPath === link.href
-                ? "text-oxblood-800 bg-oxblood-50"
-                : "text-ink-600 hover:text-ink-900 hover:bg-ink-50"
+                ? "text-white bg-white/25"
+                : "text-white/90 hover:text-white hover:bg-white/10"
           }`}
         >
           {link.label}
         </a>
       ))}
       <a
-        href={url("/get-involved")}
-        class="block mt-2 px-4 py-2.5 bg-oxblood-800 hover:bg-oxblood-900 text-white font-semibold rounded-lg text-center transition-colors text-sm"
+        href={url(isEn ? "/en/get-involved" : "/get-involved")}
+        class="block mt-2 px-4 py-2.5 bg-black/25 hover:bg-black/40 text-white font-semibold rounded-lg text-center transition-colors text-sm"
       >
-        දායකත්වය දක්වන්න
+        {isEn ? "Donate" : "දායකත්වය දක්වන්න"}
       </a>
     </div>
   </div>

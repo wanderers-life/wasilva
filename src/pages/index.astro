@@ -3,7 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import HeroCarousel from "@components/HeroCarousel.astro";
-import ProgramCard from "@components/ProgramCard.astro";
+import ProgramCarousel from "@components/ProgramCarousel.astro";
 import NewsCard from "@components/NewsCard.astro";
 import GalleryGrid from "@components/GalleryGrid.astro";
 import TypeBlock from "@components/TypeBlock.astro";
@@ -123,35 +123,8 @@ const galleryImages = [
   <!-- A. Hero Carousel -->
   <HeroCarousel />
 
-  <!-- Section Divider -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-center gap-4 py-6">
-      <div class="flex-1 h-px" style="background: var(--color-brass); opacity: 0.3;"></div>
-      <TypeBlock />
-      <div class="flex-1 h-px" style="background: var(--color-brass); opacity: 0.3;"></div>
-    </div>
-  </div>
-
-  <!-- B. Programs Card Grid -->
-  <section class="py-16 lg:py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl lg:text-4xl font-bold text-ink-900 mb-4">අපගේ වැඩසටහන්</h2>
-        <p class="text-ink-600 max-w-2xl mx-auto">
-          ඩබ්ලිව්. ඒ. සිල්වා පදනමේ ප්‍රධාන වැඩසටහන් පහ
-        </p>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-        {programs.map((program) => (
-          <ProgramCard
-            image={program.image}
-            title={program.title}
-            description={program.description}
-          />
-        ))}
-      </div>
-    </div>
-  </section>
+  <!-- B. Programs Sliding Carousel — overlaps hero by ~1/3 -->
+  <ProgramCarousel programs={programs} />
 
   <!-- Section Divider -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
